@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f6ef">
+  <title>兔子配置中心 · WarframeRabbit</title>
+  <link rel="stylesheet" href="./settings.css">
+  <script src="./settings.js" defer></script>
+</head>
+<body>
+  <header class="masthead">
+    <div class="brand"><span class="signal" aria-hidden="true"></span> WARFRAME<span>RABBIT</span></div>
+
+  </header>
+  <main>
+    <header class="intro">
+
+      <h1>兔子配置中心</h1>
+      <p>一次设置多项订阅，复制一条指令发给兔子。</p>
+    </header>
+    <div class="layout">
+      <section class="editor" aria-labelledby="editor-title">
+        <div class="panel">
+          <h2 id="editor-title">选择内容和范围</h2>
+          <div class="scopes" role="group" aria-label="配置内容">
+            <button type="button" data-content="member">蹲</button>
+            <button type="button" data-content="push">推送</button>
+            <button type="button" data-content="live">直播</button>
+            <button type="button" data-content="market">市场监控</button>
+            <button type="button" data-content="riven">紫卡监控</button>
+            <button type="button" data-content="groupfriend">AI 群友</button>
+            <button type="button" data-content="verify">群验证</button>
+            <button type="button" data-content="display">显示偏好</button>
+          </div>
+          <div class="scopes scope-target" role="group" aria-label="应用对象">
+            <button type="button" data-target="personal">个人</button>
+            <button type="button" data-target="group">群</button>
+          </div>
+          <p id="scope-help" class="hint"></p>
+          <div class="default-actions">
+            <span id="default-hint" class="hint"></span>
+            <button type="button" id="fill-defaults" hidden>填入默认值</button>
+          </div>
+          <div id="master"></div>
+        </div>
+        <div class="panel">
+          <div class="panel-title">
+            <h2 id="projects-title">推送项目</h2>
+            <span id="selected" class="count" aria-live="polite"></span>
+            <button type="button" id="add-streamer" hidden>添加主播</button>
+          </div>
+          <label for="search" class="sr-only">搜索推送项目</label>
+          <input id="search" type="search" placeholder="搜索项目，例如裂隙、夜灵">
+          <div id="items"></div>
+          <p id="no-results" class="hint" hidden>没有匹配的项目。</p>
+        </div>
+      </section>
+      <aside class="panel handoff" aria-labelledby="transfer-title">
+        <h2 id="transfer-title">配置码</h2>
+        <details class="restore">
+          <summary>粘贴已有配置码</summary>
+          <p class="hint"><span id="export-context">在群里发送</span> <code id="export-command">.设置 个人 蹲 导出</code> 获取配置码。</p>
+          <label for="incoming" class="sr-only">待导入的配置码</label>
+          <textarea id="incoming" rows="3" placeholder="WRS1.…"></textarea>
+          <button type="button" id="restore">回填配置</button>
+        </details>
+        <ul id="summary" aria-label="本次改动"></ul>
+        <button type="button" class="primary" id="generate">生成指令</button>
+        <label for="command" class="field-name">发送给兔子的指令</label>
+        <textarea id="command" rows="4" readonly spellcheck="false" placeholder=".设置 WRS1.…"></textarea>
+        <div class="copy-row">
+          <span id="length" class="hint"></span>
+          <button type="button" id="copy" disabled>复制指令</button>
+        </div>
+        <p id="status" role="status" class="hint"></p>
+      </aside>
+    </div>
+  </main>
+  <template id="item-template">
+    <article class="item">
+      <label class="item-title"><input type="checkbox" class="include"><span></span></label>
+      <div class="item-options" hidden></div>
+    </article>
+  </template>
+</body>
+</html>
