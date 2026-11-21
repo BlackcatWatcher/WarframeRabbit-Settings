@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f6ef">
+  <title>兔子配置中心 · WarframeRabbit</title>
+  <link rel="stylesheet" href="./site.css">
+  <link rel="stylesheet" href="./settings.css">
+  <script src="./site.js" defer></script>
+  <script src="./settings.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳转到正文</a><header class="site-header"><div class="header-inner"><a class="site-brand" href="./index.html"><svg viewBox="0 0 32 40" aria-hidden="true"><path d="M9 24C3 15 3 1 7 1c4 0 5 11 6 17h3C17 12 20 0 24 2c4 2 1 16-3 22 9 10 3 16-6 16S1 34 9 24Z"/><circle cx="11" cy="29" r="1.3" fill="#172c26"/><circle cx="20" cy="29" r="1.3" fill="#172c26"/></svg><span><span class="brand-title">兔子帮助中心</span><span class="brand-caption">WARFRAME RABBIT</span></span></a><button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">菜单</button><nav class="site-nav" id="site-nav" aria-label="主导航"><a href="./index.html">首页</a><a href="./settings.html" aria-current="page">配置中心</a><a href="./invite.html">邀请入群</a><a href="./quickstart.html">快速上手</a><a href="./help.html">帮助中心</a><a href="./updates.html">更新公告</a><a href="./contact.html">联系反馈</a></nav></div></header>
+  <main id="main">
+    <header class="intro">
+
+      <h1>兔子配置中心</h1>
+      <p>一次设置多项订阅，复制一条指令发给兔子。</p>
+    </header>
+    <p class="settings-notice">设置时只会修改你选中的项目，未选择或未修改的会保持不变。</p>
+    <div class="layout">
+      <section class="editor" aria-labelledby="editor-title">
+        <div class="panel">
+          <h2 id="editor-title">选择内容和范围</h2>
+          <div class="scopes" role="group" aria-label="配置内容">
+            <button type="button" data-content="member">蹲</button>
+            <button type="button" data-content="push">推送</button>
+            <button type="button" data-content="live">直播</button>
+            <button type="button" data-content="market">市场监控</button>
+            <button type="button" data-content="riven">紫卡监控</button>
+            <button type="button" data-content="groupfriend">AI 群友</button>
+            <button type="button" data-content="verify">群验证</button>
+            <button type="button" data-content="display">显示偏好</button>
+          </div>
+          <div class="scopes scope-target" role="group" aria-label="应用对象">
+            <button type="button" data-target="group">群</button>
+            <button type="button" data-target="personal">个人</button>
+          </div>
+          <p id="scope-help" class="hint"></p>
+          <div class="default-actions">
+            <span id="default-hint" class="hint"></span>
+            <div class="default-buttons">
+              <button type="button" id="fill-defaults" hidden>填入默认值</button>
+              <button type="button" id="clear-draft" title="清空当前页面的编辑内容">清空</button>
+            </div>
+          </div>
+          <div id="master"></div>
+        </div>
+        <div class="panel">
+          <div class="panel-title">
+            <h2 id="projects-title">推送项目</h2>
+            <span id="selected" class="count" aria-live="polite"></span>
+            <button type="button" id="add-streamer" hidden>添加主播</button>
+          </div>
+          <label for="search" class="sr-only">搜索推送项目</label>
+          <input id="search" type="search" placeholder="搜索项目，例如裂隙、夜灵">
+          <div id="items"></div>
+          <p id="no-results" class="hint" hidden>没有匹配的项目。</p>
+        </div>
+      </section>
+      <aside class="panel handoff" aria-labelledby="transfer-title">
+        <h2 id="transfer-title">配置码</h2>
+        <details class="restore">
+          <summary>粘贴已有配置码</summary>
+          <p class="hint"><span id="export-context">在群里发送</span> <code id="export-command">.设置 个人 蹲 导出</code> 获取配置码。</p>
+          <label for="incoming" class="sr-only">待导入的配置码</label>
+          <textarea id="incoming" rows="3" placeholder="WRS1.…"></textarea>
+          <button type="button" id="restore">回填配置</button>
+        </details>
+        <ul id="summary" aria-label="本次改动"></ul>
+        <button type="button" class="primary" id="generate">生成指令</button>
+        <label for="command" class="field-name">发送给兔子的指令</label>
+        <textarea id="command" rows="4" readonly spellcheck="false" placeholder=".设置 WRS1.…"></textarea>
+        <div class="copy-row">
+          <span id="length" class="hint"></span>
+          <button type="button" id="copy" disabled>复制指令</button>
+        </div>
+        <p id="status" role="status" class="hint"></p>
+      </aside>
+    </div>
+  </main>
+  <template id="item-template">
+    <article class="item">
+      <div class="item-heading">
+        <label class="item-title"><input type="checkbox" class="include"><span></span></label>
+        <a class="item-help" target="_blank" rel="noopener">查看帮助 ↗</a>
+      </div>
+      <div class="item-options" hidden></div>
+    </article>
+  </template>
+  <footer class="site-footer"><div><strong>WarframeRabbit · 因幡帝</strong>陪你查资料、看市场，也陪群友玩一会儿。</div><div class="footer-links"><a href="./help.html">指令大全</a><a href="./contact.html">联系黑猫</a></div></footer><div class="toast" id="site-toast" role="status" hidden></div>
+</body>
+</html>
+

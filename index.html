@@ -3,85 +3,56 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f8f6ef">
-  <title>兔子配置中心 · WarframeRabbit</title>
-  <link rel="stylesheet" href="./settings.css">
-  <script src="./settings.js" defer></script>
+  <meta name="theme-color" content="#172c26">
+  <meta name="description" content="WarframeRabbit 兔子帮助中心：查指令、看教程、配置推送，了解如何邀请兔子加入你的群。">
+  <title>兔子帮助中心 · WarframeRabbit</title>
+  <link rel="stylesheet" href="./site.css">
+  <script src="./site.js" defer></script>
 </head>
 <body>
-  <header class="masthead">
-    <div class="brand"><span class="signal" aria-hidden="true"></span> WARFRAME<span>RABBIT</span></div>
-
-  </header>
-  <main>
-    <header class="intro">
-
-      <h1>兔子配置中心</h1>
-      <p>一次设置多项订阅，复制一条指令发给兔子。</p>
-    </header>
-    <div class="layout">
-      <section class="editor" aria-labelledby="editor-title">
-        <div class="panel">
-          <h2 id="editor-title">选择内容和范围</h2>
-          <div class="scopes" role="group" aria-label="配置内容">
-            <button type="button" data-content="member">蹲</button>
-            <button type="button" data-content="push">推送</button>
-            <button type="button" data-content="live">直播</button>
-            <button type="button" data-content="market">市场监控</button>
-            <button type="button" data-content="riven">紫卡监控</button>
-            <button type="button" data-content="groupfriend">AI 群友</button>
-            <button type="button" data-content="verify">群验证</button>
-            <button type="button" data-content="display">显示偏好</button>
-          </div>
-          <div class="scopes scope-target" role="group" aria-label="应用对象">
-            <button type="button" data-target="personal">个人</button>
-            <button type="button" data-target="group">群</button>
-          </div>
-          <p id="scope-help" class="hint"></p>
-          <div class="default-actions">
-            <span id="default-hint" class="hint"></span>
-            <button type="button" id="fill-defaults" hidden>填入默认值</button>
-          </div>
-          <div id="master"></div>
+  <a class="skip-link" href="#main">跳转到正文</a><header class="site-header"><div class="header-inner"><a class="site-brand" href="./index.html"><svg viewBox="0 0 32 40" aria-hidden="true"><path d="M9 24C3 15 3 1 7 1c4 0 5 11 6 17h3C17 12 20 0 24 2c4 2 1 16-3 22 9 10 3 16-6 16S1 34 9 24Z"/><circle cx="11" cy="29" r="1.3" fill="#172c26"/><circle cx="20" cy="29" r="1.3" fill="#172c26"/></svg><span><span class="brand-title">兔子帮助中心</span><span class="brand-caption">WARFRAME RABBIT</span></span></a><button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">菜单</button><nav class="site-nav" id="site-nav" aria-label="主导航"><a href="./index.html" aria-current="page">首页</a><a href="./settings.html">配置中心</a><a href="./invite.html">邀请入群</a><a href="./quickstart.html">快速上手</a><a href="./help.html">帮助中心</a><a href="./updates.html">更新公告</a><a href="./contact.html">联系反馈</a></nav></div></header>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <p class="eyebrow">WARFRAME RABBIT / 因幡帝</p>
+        <div class="hero-heading">
+          <img class="hero-avatar" src="./icon.webp" width="88" height="88" alt="因幡帝头像" fetchpriority="high">
+          <h1 id="hero-title">全面且专业的<span>Tenno好帮手。</span></h1>
         </div>
-        <div class="panel">
-          <div class="panel-title">
-            <h2 id="projects-title">推送项目</h2>
-            <span id="selected" class="count" aria-live="polite"></span>
-            <button type="button" id="add-streamer" hidden>添加主播</button>
-          </div>
-          <label for="search" class="sr-only">搜索推送项目</label>
-          <input id="search" type="search" placeholder="搜索项目，例如裂隙、夜灵">
-          <div id="items"></div>
-          <p id="no-results" class="hint" hidden>没有匹配的项目。</p>
+        <p class="lead">查任务、找资料、看行情、等推送。<br>把 Warframe 里的大小事交给兔子，<br>也给群友留一点聊天与游戏的乐趣。</p>
+        <div class="actions"><a class="button primary" href="./help.html">看看兔子会什么 ↗</a><a class="button" href="./invite.html">邀请兔子入群</a></div>
+        <div class="quick-links"><a href="./quickstart.html">第一次用？从这里开始</a><a href="./settings.html">已经有兔子？去配置</a></div>
+      </div>
+      <div class="terminal" aria-label="指令用法示例">
+        <div class="terminal-top">A LITTLE HELP FROM RABBIT</div>
+        <div class="terminal-body">
+          <div class="chat-question">我想知道现在能刷什么</div>
+          <div class="chat-answer"><strong>从这些指令开始</strong><p><code>裂隙</code> 看当前开核桃任务<br><code>周报</code> 整理本周轮换清单<br><code>物品 绝路</code> 了解装备与用途</p></div>
+          <div class="chat-question">想在夜灵晚上收到提醒</div>
+          <div class="chat-answer"><strong>让兔子帮你蹲</strong><p><code>蹲 夜灵 永久</code><br>也可以在配置中心选好项目，复制指令。</p></div>
         </div>
-      </section>
-      <aside class="panel handoff" aria-labelledby="transfer-title">
-        <h2 id="transfer-title">配置码</h2>
-        <details class="restore">
-          <summary>粘贴已有配置码</summary>
-          <p class="hint"><span id="export-context">在群里发送</span> <code id="export-command">.设置 个人 蹲 导出</code> 获取配置码。</p>
-          <label for="incoming" class="sr-only">待导入的配置码</label>
-          <textarea id="incoming" rows="3" placeholder="WRS1.…"></textarea>
-          <button type="button" id="restore">回填配置</button>
-        </details>
-        <ul id="summary" aria-label="本次改动"></ul>
-        <button type="button" class="primary" id="generate">生成指令</button>
-        <label for="command" class="field-name">发送给兔子的指令</label>
-        <textarea id="command" rows="4" readonly spellcheck="false" placeholder=".设置 WRS1.…"></textarea>
-        <div class="copy-row">
-          <span id="length" class="hint"></span>
-          <button type="button" id="copy" disabled>复制指令</button>
-        </div>
-        <p id="status" role="status" class="hint"></p>
-      </aside>
-    </div>
+      </div>
+    </section>
+    <section class="search-panel" aria-labelledby="search-title">
+      <div><h2 id="search-title">想找哪个功能？</h2><p>输入指令、别名，或你想做的事。</p></div>
+      <form class="search-form" action="./help.html" method="get"><label class="sr-only" for="home-search">搜索机器人指令</label><input id="home-search" type="search" name="q" placeholder="例如：紫卡、夜灵、推送、wm"><button class="button primary" type="submit">查帮助</button></form>
+    </section>
+    <section class="section" aria-labelledby="features-title">
+      <div class="section-heading"><h2 id="features-title">玩 Warframe，也照顾你的群。</h2><a href="./help.html">查看完整指令 →</a></div>
+      <div class="grid">
+        <article class="card"><span class="card-number">01 / WORLD STATE</span><h3>任务与轮换</h3><p>裂隙、仲裁、赏金、奸商和每周任务，出发前先看一眼。</p><a href="./help.html?q=%E8%BD%AE%E6%8D%A2">查看相关指令 →</a></article>
+        <article class="card"><span class="card-number">02 / KNOWLEDGE</span><h3>资料与养成</h3><p>查物品、掉落、遗物和配卡；从萌新问题找到下一步。</p><a href="./help.html?q=%E7%89%A9%E5%93%81">查看相关指令 →</a></article>
+        <article class="card"><span class="card-number">03 / MARKET</span><h3>行情与紫卡</h3><p>查询国际服与国服市场，识别紫卡截图，设置价格监控。</p><a href="./help.html?q=%E5%B8%82%E5%9C%BA">查看相关指令 →</a></article>
+        <article class="card"><span class="card-number">04 / NOTIFICATIONS</span><h3>订阅与提醒</h3><p>蹲想刷的任务、等铸造完成，让需要的信息主动来找你。</p><a href="./settings.html">进入配置中心 →</a></article>
+        <article class="card"><span class="card-number">05 / GROUP LIFE</span><h3>签到与小游戏</h3><p>签到、猜词、21点、回廊和群友配对，让群里热闹一点。</p><a href="./help.html?group=%E5%B0%8F%E6%B8%B8%E6%88%8F">看看怎么玩 →</a></article>
+        <article class="card"><span class="card-number">06 / YOUR RABBIT</span><h3>AI 群友与群管理</h3><p>给兔子选个人格，设置群验证和欢迎语，按自己的节奏使用。</p><a href="./help.html?command=.AI%E7%BE%A4%E5%8F%8B">了解 AI 群友 →</a></article>
+      </div>
+    </section>
+    <section class="section grid two" aria-label="继续了解兔子">
+      <article class="panel"><p class="eyebrow">START HERE</p><h2>一条指令，就是一次开始。</h2><p class="muted">第一次使用、如何查帮助、怎样分清个人和群配置，都从快速上手开始。</p><a class="button" href="./quickstart.html">阅读快速上手</a></article>
+      <article class="panel"><p class="eyebrow">WATCH & LEARN</p><h2>想看着操作？</h2><p class="muted">从认识兔子到每项功能的用法，视频说明书陪你一步步来。</p><a class="button" href="./videos.html">观看视频教程 ↗</a></article>
+    </section>
   </main>
-  <template id="item-template">
-    <article class="item">
-      <label class="item-title"><input type="checkbox" class="include"><span></span></label>
-      <div class="item-options" hidden></div>
-    </article>
-  </template>
+  <footer class="site-footer"><div><strong>WarframeRabbit · 因幡帝</strong>陪你查资料、看市场，也陪群友玩一会儿。</div><div class="footer-links"><a href="./help.html">指令大全</a><a href="./contact.html">联系黑猫</a></div></footer><div class="toast" id="site-toast" role="status" hidden></div>
 </body>
 </html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#172c26">
+  <meta name="description" content="第一次使用 WarframeRabbit？从发送指令、配置推送到常见问题，跟着步骤开始。">
+  <title>快速上手与常见问题 · 兔子帮助中心</title>
+  <link rel="stylesheet" href="./site.css">
+  <script src="./site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳转到正文</a><header class="site-header"><div class="header-inner"><a class="site-brand" href="./index.html"><svg viewBox="0 0 32 40" aria-hidden="true"><path d="M9 24C3 15 3 1 7 1c4 0 5 11 6 17h3C17 12 20 0 24 2c4 2 1 16-3 22 9 10 3 16-6 16S1 34 9 24Z"/><circle cx="11" cy="29" r="1.3" fill="#172c26"/><circle cx="20" cy="29" r="1.3" fill="#172c26"/></svg><span><span class="brand-title">兔子帮助中心</span><span class="brand-caption">WARFRAME RABBIT</span></span></a><button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">菜单</button><nav class="site-nav" id="site-nav" aria-label="主导航"><a href="./index.html">首页</a><a href="./settings.html">配置中心</a><a href="./invite.html">邀请入群</a><a href="./quickstart.html" aria-current="page">快速上手</a><a href="./help.html">帮助中心</a><a href="./updates.html">更新公告</a><a href="./contact.html">联系反馈</a></nav></div></header>
+  <main id="main">
+    <header class="page-head"><p class="eyebrow">GETTING STARTED</p><h1>从第一条指令开始。</h1><p class="lead">已经有兔子在群里？直接试着发送指令。还没有的话，先去<a href="./invite.html">邀请入群</a>。</p><div class="quick-links"><a href="#first-steps">第一次使用</a><a href="#for-admins">群管理设置</a><a href="#faq">常见问题</a></div></header>
+    <div class="prose">
+      <section id="first-steps"><h2>第一次使用</h2><ol class="steps">
+        <li><h3>先看看兔子会什么</h3><p>发送 <code>帮助</code> 查看目录，发送 <code>帮助 指令名</code> 看详细用法。例如 <code>帮助 wm</code>。</p><a href="./help.html">也可以在网页搜索 →</a></li>
+        <li><h3>发出一条查询</h3><p>试试 <code>夜灵</code>、<code>物品 绝路</code> 或 <code>wm 充沛</code>。主命令与参数之间用空格分开。</p><p>需要复制结果时可加 <code>-w</code>，例如 <code>wm 充沛 -w</code>；支持切换的指令可加 <code>-t</code> 查看图片。</p></li>
+        <li><h3>确认你用的是哪个服</h3><p><code>-pc</code> 表示国际服 PC，<code>-cn</code> 表示国服。输出中文和查询国服是两回事；临时附加选项只影响这次查询。</p><p>例如 <code>wm 充沛 -pc</code> 查询国际服，国服市场使用 <code>cm 充沛</code>。</p></li>
+        <li><h3>了解进阶指令</h3><p>复杂指令可以组合多个筛选条件。先写主指令和查询对象，再按需要加入条件；参数之间用空格分开，具体支持哪些条件可以查看对应帮助。</p><p><strong>查紫卡：</strong><code>wr 绝路 多重 爆伤 负变焦 2+1</code>，查询绝路的两正一负紫卡：正面包含多重、爆伤，负面为变焦。</p><p><strong>蹲提醒：</strong><code>蹲 夜灵 提前12 永久</code>，长期订阅夜间提醒，提前12分钟通知。新增订阅需要当前群已开启对应推送。</p><div class="actions"><a class="button" href="./settings.html">进入配置中心 →</a><a class="button" href="./help.html">进入帮助中心 →</a></div></li>
+      </ol></section>
+      <section id="for-admins" class="section"><h2>群管理了解和配置兔子的方法</h2><ol><li><strong>查看当前群状态：</strong>发送 <code>.状态</code>，确认当前群的套餐、萝卜余额和已开启功能。</li><li><strong>设置常用服区：</strong>用 <code>.默认平台 pc</code> 或 <code>.默认平台 国服</code> 设置常用服区。</li><li><strong>开启需要的功能：</strong>发送 <code>.开启 推送</code> 等指令开启需要的功能，并查看费用变化。</li><li><strong>配置复杂的群设置：</strong>在配置中心编辑群设置，复制生成的 <code>.设置 WRS1.…</code> 指令，发回目标群。</li><li><strong>开通或更换VIP类型：</strong>在<a href="./invite.html#pricing">邀请入群</a>处查看VIP类型，随时都可以输入 <code>.开通 SVIP</code> 指令来切换VIP。</li></ol><p class="note">群配置需要群管理权限。个人推送和个人显示偏好只影响你自己；「蹲」订阅保存在当前群和本人名下。</p><div class="actions"><a class="button" href="./invite.html#pricing">了解费用</a><a class="button" href="./videos.html">看视频操作</a></div></section>
+      <section class="section" id="faq"><h2>常见问题</h2>
+        <nav class="quick-links" aria-label="常见问题分类"><a href="#faq-daily">日常使用与网页配置</a><a href="#faq-basics">基础问答</a><a href="#faq-applicants">申请人问答</a><a href="#faq-commands">指令使用问答</a></nav>
+        <section class="section" id="faq-daily"><h3>日常使用与网页配置</h3>
+        <details class="faq"><summary>发了指令，兔子没有回复？</summary><div><p>先确认机器人在群内、没有被禁言，再试一条完整的 <code>帮助</code> 或 <code>.状态</code>。检查指令拼写和空格，群管理可确认功能是否开启、余额和套餐是否可用。</p><p>如果多个指令都没有回应，可记录发生时间并通过<a href="./contact.html">联系反馈</a>提供截图。</p></div></details>
+        <details class="faq"><summary>提示没有权限，应该找谁？</summary><div><p>普通查询和个人设置通常由本人操作；修改群设置需要群主、群管理员、申请人或已授权管理。请先查看该指令的帮助，由有权限的人在目标群操作。</p></div></details>
+        <details class="faq"><summary>我玩国际服，为什么查出来像国服？</summary><div><p>显示语言与游戏服区分别设置。可加 <code>-pc</code> 或 <code>-cn</code> 临时指定，群管理也可用 <code>.默认平台</code> 修改群默认平台；市场指令还需分清国际服 <code>wm/wr</code> 和国服 <code>cm/cr</code>。</p></div></details>
+        <details class="faq"><summary>网页改了设置，为什么机器人没变化？</summary><div><p>在网页中选择设置后，点击「生成指令」，复制整条 <code>.设置 WRS1.…</code> 并发给兔子，机器人确认成功后才会生效。浏览器里的草稿不会自动同步到机器人。</p></div></details>
+        <details class="faq"><summary>怎样把当前配置放到网页里继续编辑？</summary><div><p>向兔子发送 <code>.设置 [个人|群] 内容 导出</code> 获取配置码，例如 <code>.设置 群 推送 导出</code>。在配置中心打开「粘贴已有配置码」，粘贴后点击「回填配置」。</p></div></details>
+        <details class="faq"><summary>订阅了，为什么没有收到推送？</summary><div><p>检查群或个人的推送总开关、对应项目开关、接收时段和筛选条件。群内的「蹲」还要求本群开启相应推送；不填时长的订阅命中一次后会自动取消。</p><p>查看 <a href="./help.html?command=蹲">蹲的帮助</a> 和 <a href="./help.html?command=.推送">推送设置帮助</a>。</p></div></details>
+        <details class="faq"><summary>套餐费用为什么和基础价不一样？</summary><div><p>实际费用由套餐基础消耗和已开启功能消耗相加，按小时扣萝卜。发送 <code>.状态</code> 看当前总消耗；功能费用及参考价见<a href="./invite.html#pricing">套餐与定价</a>。</p></div></details>
+        <details class="faq"><summary>网页和聊天里的帮助怎么对应？</summary><div><p>网页指令说明与机器人共用功能帮助来源。聊天里发送 <code>帮助 指令名 子页</code>，例如 <code>帮助 蹲 夜灵</code>，可以查到对应教程。</p></div></details>
+        </section>
+        <section class="section" id="faq-basics"><h3>基础问答</h3>
+          <details class="faq"><summary>兔子可以免费使用吗？</summary><div><p>可以先在黑猫的<a href="./invite.html#experience">体验群</a>中使用兔子。邀请到自己的群后，按所选套餐和开启功能消耗萝卜；也可以在体验群了解其他免费开源机器人的选择。</p></div></details>
+          <details class="faq"><summary>普通指令的格式是什么？</summary><div><p>通常使用「主指令 内容 附加条件」的结构，主指令和参数之间留空格，例如 <code>wm 充沛 -w</code>。管理指令开头的英文点号不能省略，例如 <code>.状态</code>、<code>.开启 推送</code>。复杂条件以<a href="./help.html">对应指令的帮助</a>为准。</p></div></details>
+          <details class="faq"><summary>为什么有时部分功能不可用？</summary><div><p>平台限制、账号风控、上游接口或服务器故障都可能影响使用。邀请兔子后建议同时留在体验群，关注恢复、换号和服务调整通知；遇到异常也可以通过<a href="./contact.html">联系反馈</a>说明情况。</p></div></details>
+          <details class="faq"><summary>以前用过其他机器人，怎么让群友适应兔子？</summary><div><p>不同机器人的命令和默认行为可能不同。可以把本页、<a href="./help.html">帮助中心</a>或<a href="./videos.html">视频说明书</a>发给群友，先介绍常用指令、点号与空格规则，以及如何查看详细帮助。</p></div></details>
+        </section>
+        <section class="section" id="faq-applicants"><h3>申请人问答</h3>
+          <details class="faq"><summary>申请人是什么？</summary><div><p>申请人是填写申请表、为目标群申请兔子的人，拥有所申请群兔子的最高管理权，包括授权其他人、安排退群或换群、处置群萝卜。换群时可以联系黑猫处理萝卜转移。</p><p>申请人离开所申请的群前，应先处理退群、换群或交接；退出后没有处理的，视为放弃相关权利，其他人可以重新填写申请表申请更换申请人。</p></div></details>
+          <details class="faq"><summary>500次查询次数够吗？</summary><div><p>申请表给出的使用经验是，大部分群每天500次查询额度已经够用。实际消耗还取决于群活跃度和指令权重，可以先选适合的套餐，再按日常使用量调整。当前套餐与额度用 <code>.状态</code> 查看。</p></div></details>
+          <details class="faq"><summary>我该怎么选择VIP套餐？</summary><div><p>50人以下的小群可以先考虑 Lite；不需要推送时可以考虑 VIP，需要推送时可以考虑 SVIP。也可以选择较低档套餐，再按需要单独开启推送等功能，比较总消耗后决定。</p><p>各套餐的查询额度、基础费用和功能附加费用见<a href="./invite.html#pricing">套餐与定价</a>，开通后用 <code>.状态</code> 核对实际费用。</p></div></details>
+          <details class="faq"><summary>兔子是怎么扣费的？</summary><div><p>1元对应1000萝卜，按小时扣除「套餐基础费用＋已开启功能费用」。例如当前总消耗是25萝卜/小时，1000萝卜可以使用约40小时；再开启其他功能是否增加费用，取决于当前套餐是否已经包含该功能。</p><p>充多少就按实际消耗使用多久，当前每小时消耗和预计剩余时间都可以发送 <code>.状态</code> 查看。</p></div></details>
+          <details class="faq"><summary>其他人可以充值吗？</summary><div><p>可以，群内任何人都可以发送 <code>.赞助 10</code>，按提示打开链接，扫码支付相同金额为当前群充值；想充给自己则使用 <code>.赞助 10 个人</code>。金额对上后自动到账，异常可联系黑猫核对订单。</p><p>也可以在微信小程序「天才杂货铺|未来店」下单，该渠道由人工处理，速度较慢。</p></div></details>
+          <details class="faq"><summary>开VIP后想升/降级怎么办？</summary><div><p>可以随时使用 <code>.开通</code> 更换VIP类型，例如 <code>.开通 SVIP</code>，再发送 <code>.状态</code> 核对新的消耗。降级后，当前仍开启、且新套餐不包含的独立功能可能继续单独计费，按需要关闭即可。</p></div></details>
+          <details class="faq"><summary>想为多个群申请兔子怎么办？</summary><div><p>为每个目标群填写申请表即可。兔子按群独立计费，每个群分别保存套餐、功能开关和萝卜余额，互不影响。</p></div></details>
+          <details class="faq"><summary>群萝卜有什么用？</summary><div><p>群萝卜是当前群的服务余额，可由群员签到或充值获得，也能提升群内参与度。个人萝卜保存在个人账户，可通过 <code>.投喂 数量</code> 转入任意有兔子的目标群。两种萝卜都能用于各自账户的VIP和功能消耗。</p></div></details>
+          <details class="faq"><summary>想让其他人拥有兔子管理权限？</summary><div><p>群主和群管理员默认具有相应管理权限。申请人还可以通过 <code>.授权</code> 授权其他群成员管理兔子，具体格式见<a href="./help.html?command=.授权">授权帮助</a>。申请人仍保留退群、换群等最高管理权限。</p></div></details>
+          <details class="faq"><summary>小程序下单什么时候处理我的申请/充值？</summary><div><p>小程序申请和充值由黑猫手动处理，通常在半天内处理；超过半天没有回复或到账，可以再联系提醒一次。建议优先使用 <code>.赞助</code> 自动充值，并保留订单信息便于核对。</p></div></details>
+          <details class="faq"><summary>半年/年度包有优惠吗？</summary><div><p>半年、年度方案和优惠以小程序当时展示的价格为准，也可以<a href="./contact.html">联系黑猫</a>确认。服务仍通过萝卜余额按小时结算；每小时费率变化会直接影响后续消耗。</p></div></details>
+          <details class="faq"><summary>兔子没有响应了怎么办？</summary><div><p>先检查是否被禁言、指令格式、功能开关和群余额；如果多项功能都无法使用，请在体验群或通过<a href="./contact.html">联系反馈</a>说明时间、群号和现象，并留意恢复或更换机器人账号的通知。</p><p>QQ服务计费会检查机器人是否仍在服务本群，费用问题可联系黑猫核对。恢复和换号安排以群内通知为准。</p></div></details>
+        </section>
+        <section class="section" id="faq-commands"><h3>指令使用问答</h3>
+          <details class="faq"><summary>.状态能看什么？</summary><div><p><code>.状态</code> 可以查看当前群的套餐、萝卜余额、已开启功能、每小时消耗与预计剩余时间；私聊时查看个人账户，在群里可用 <code>.状态 个人</code> 查看自己。遇到费用或功能问题时，可以先从这里检查。</p></div></details>
+          <details class="faq"><summary>能单独开通功能吗？</summary><div><p>可以。选择一种VIP套餐后，还可以按需开启推送、签到等独立功能；套餐没有包含的功能会按对应价目追加消耗。先在<a href="./invite.html#pricing">套餐与定价</a>比较费用，再用 <code>.状态</code> 查看开启后的总消耗。</p></div></details>
+          <details class="faq"><summary>指令的消耗次数怎么算？</summary><div><p>查询额度按指令权重消耗，不等同于发送消息的条数。夜灵等普通状态查询通常消耗1次，<code>wm</code>、<code>rm</code> 等市场查询消耗2次，紫卡分析等图片识别消耗3次；帮助、管理等部分入口不消耗查询额度。</p></div></details>
+          <details class="faq"><summary>如何转换VIP？</summary><div><p>在目标群发送 <code>.开通 套餐代号</code> 即可，例如 <code>.开通 SVIP</code>。每小时消耗会随套餐及当前功能更新，再用 <code>.状态</code> 确认；公开套餐代号见<a href="./invite.html#pricing">邀请入群页</a>。</p></div></details>
+          <details class="faq"><summary>推送功能默认已经开启了一部分？</summary><div><p>有些推送项目的默认子开关已经开启，但仍需要满足推送总开关、时段与规则。修改前先发送 <code>.推送</code> 查看当前状态；需要开关某项时，明确写出「开启」或「关闭」，例如 <code>.推送 裂隙 开启</code>。</p></div></details>
+          <details class="faq"><summary>为什么推送/蹲没有反应？</summary><div><p>需要同时开启推送总开关和对应项目子开关，并满足时段与筛选条件。可以先用 <code>.推送</code> 检查，再用 <code>.开启 推送</code>、<code>.推送 裂隙 开启</code> 等指令明确开启需要的项目。</p><p>「蹲」还需在对应群里设置本人订阅；不填时长时，命中一次后会自动取消。完整规则见<a href="./help.html?command=蹲">蹲的帮助</a>。</p></div></details>
+          <details class="faq"><summary>为什么射爆功能没法禁言？</summary><div><p>机器人需要在QQ群内拥有管理员权限，目标成员也必须在它可禁言的范围内。请检查轮盘玩法与禁言设置，以及QQ是否限制了相关操作；异常时可把具体回执发给黑猫排查。</p><p>群管理可用 <code>.小游戏 轮盘 禁言 10</code> 设置禁言分钟数，具体条件见<a href="./help.html?command=.小游戏&amp;topic=轮盘">轮盘帮助</a>。</p></div></details>
+          <details class="faq"><summary>兔子为什么退群了？</summary><div><p>产生服务费用的QQ群余额不足后会收到续费提醒；持续7天没有补足服务余额时，机器人会自动退群。如果被管理员移出、账号异常，或需要重新邀请，可以<a href="./contact.html">联系黑猫</a>核对情况。</p></div></details>
+          <details class="faq"><summary>为什么剩余天数跟VIP月费不一样？</summary><div><p>剩余时间由当前余额和实际每小时总消耗计算。你可能开启了当前套餐没有包含的独立功能，例如低档套餐另外开启签到、推送；因此总消耗会高于仅开Warframe查询时的参考价。以 <code>.状态</code> 显示的费用明细为准。</p></div></details>
+          <details class="faq"><summary>能无限模拟开卡吗？</summary><div><p>模拟开卡受可用次数限制，次数耗尽时会返回提示。它是娱乐功能；查询真实紫卡挂牌可以用 <code>wr</code>，查看截图里的紫卡可以使用紫卡分析。详见<a href="./help.html?command=模拟开卡">模拟开卡帮助</a>。</p></div></details>
+          <details class="faq"><summary>还有其他问题，去哪里问？</summary><div><p>可以在<a href="./invite.html#experience">体验群</a>提问，或使用 <code>反馈 具体问题</code> 联系黑猫。若兔子已无法响应，请直接通过<a href="./contact.html">联系反馈页</a>的联系方式说明情况。</p></div></details>
+        </section>
+      </section>
+    </div>
+  </main>
+  <footer class="site-footer"><div><strong>WarframeRabbit · 因幡帝</strong>陪你查资料、看市场，也陪群友玩一会儿。</div><div class="footer-links"><a href="./help.html">指令大全</a><a href="./contact.html">联系黑猫</a></div></footer><div class="toast" id="site-toast" role="status" hidden></div>
+</body>
+</html>

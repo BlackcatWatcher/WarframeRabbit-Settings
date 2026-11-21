@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#172c26">
+  <meta name="description" content="邀请 WarframeRabbit 加入你的群，了解兔子的套餐、定价和萝卜使用方式。">
+  <title>邀请入群与定价 · 兔子帮助中心</title>
+  <link rel="stylesheet" href="./site.css">
+  <script src="./site.js" defer></script>
+</head>
+<body data-site-content>
+  <a class="skip-link" href="#main">跳转到正文</a><header class="site-header"><div class="header-inner"><a class="site-brand" href="./index.html"><svg viewBox="0 0 32 40" aria-hidden="true"><path d="M9 24C3 15 3 1 7 1c4 0 5 11 6 17h3C17 12 20 0 24 2c4 2 1 16-3 22 9 10 3 16-6 16S1 34 9 24Z"/><circle cx="11" cy="29" r="1.3" fill="#172c26"/><circle cx="20" cy="29" r="1.3" fill="#172c26"/></svg><span><span class="brand-title">兔子帮助中心</span><span class="brand-caption">WARFRAME RABBIT</span></span></a><button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">菜单</button><nav class="site-nav" id="site-nav" aria-label="主导航"><a href="./index.html">首页</a><a href="./settings.html">配置中心</a><a href="./invite.html" aria-current="page">邀请入群</a><a href="./quickstart.html">快速上手</a><a href="./help.html">帮助中心</a><a href="./updates.html">更新公告</a><a href="./contact.html">联系反馈</a></nav></div></header>
+  <main id="main">
+    <header class="page-head"><p class="eyebrow">BRING RABBIT HOME</p><h1>把兔子带回你的群。</h1><p class="lead">先认识邀请方式和费用，再选择适合自己群的功能。</p><div class="quick-links"><a href="#invitation">邀请方式</a><a href="#experience">体验群</a><a href="#pricing">套餐与定价</a><a href="#carrots">萝卜怎么用</a></div></header>
+    <section id="invitation" class="grid two" aria-label="邀请方式">
+      <article class="panel"><p class="eyebrow">QQ / 申请入群</p><h2>QQ 机器人</h2><ol><li>进入任意体验群，例如 <strong data-invite-group>883262099</strong>。</li><li>在群文件中下载并填写机器人邀请申请表。</li><li>把申请表发给黑猫 <strong data-contact-qq>838652229</strong>，按回复完成邀请。</li></ol><p class="small muted">申请人需为目标群的群主或管理员；个人玩家也可以先在体验群使用兔子。</p><button class="button" type="button" data-copy-group data-copy="883262099">复制体验群号</button></article>
+      <article class="panel"><p class="eyebrow">QQ OFFICIAL BOT</p><h2>QQ 官方机器人</h2><p>在已有兔子的聊天中发送下面的指令，获取当前官方分享入口，再在 QQ 中打开机器人资料并邀请进群。</p><p><code>.邀请进群</code></p><div class="actions"><button class="button" type="button" data-copy=".邀请进群">复制邀请指令</button><a href="./help.html?command=.邀请进群">查看完整说明 →</a></div><p class="small muted" style="margin-top:16px">不同接入方式支持的功能有所差异，邀请时可以向黑猫确认。</p></article>
+    </section>
+    <section class="section" id="experience" aria-labelledby="experience-title">
+      <p class="eyebrow">MEET RABBIT</p><h2 id="experience-title">先来体验群，认识一下兔子。</h2>
+      <p class="lead">可以先加入任意体验群使用兔子。④群面向国服玩家，邀请申请表可在体验群的群文件中获取。</p>
+      <div class="grid two" id="experience-groups"><article class="card"><h3>①群</h3><p class="contact-number">980210988</p><button class="button" type="button" data-copy="980210988" aria-label="复制①群的群号">复制群号</button></article><article class="card"><h3>②群</h3><p class="contact-number">883262099</p><button class="button" type="button" data-copy="883262099" aria-label="复制②群的群号">复制群号</button></article><article class="card"><h3>③群</h3><p class="contact-number">856456900</p><button class="button" type="button" data-copy="856456900" aria-label="复制③群的群号">复制群号</button></article><article class="card"><h3>④群（国服）</h3><p class="contact-number">1003600606</p><button class="button" type="button" data-copy="1003600606" aria-label="复制④群（国服）的群号">复制群号</button></article></div>
+    </section>
+    <section class="section" id="pricing" aria-labelledby="pricing-title">
+      <p class="eyebrow">PLANS & PRICING</p><h2 id="pricing-title">套餐与定价</h2><p class="lead">萝卜按小时消耗，开启哪些功能，就按对应套餐的价目计算。</p>
+      <p class="note">每小时费用 = 套餐基础费用 + 已开启功能费用。下表为代码默认价目；当前群的实际套餐、费用和剩余时间可发送 <code>.状态</code> 查看。</p>
+      <p id="pricing-loading" role="status">正在加载套餐价目…</p>
+      <div id="pricing-content" hidden>
+        <div class="table-scroll"><table class="pricing-table"><caption class="sr-only">公开套餐费用与查询额度</caption><thead><tr><th scope="col">套餐 / 开通代号</th><th scope="col">基础 / 小时</th><th scope="col">每日查询额度</th><th scope="col">仅开 Warframe / 小时</th><th scope="col">仅开 Warframe / 30 天</th></tr></thead><tbody id="plan-rows"></tbody></table></div>
+        <p class="small muted" style="margin-top:12px">30 天参考价按每天 24 小时、1 元 = 1000 萝卜计算，不是一次扣整月。free 档用于停用服务，仅保留管理入口；其他套餐开通时会开启 Warframe 查询。</p>
+        <h3 class="section">各功能附加费用 <span class="small muted">萝卜 / 小时</span></h3><div class="table-scroll"><table id="feature-pricing" class="pricing-table"><caption class="sr-only">各套餐的功能附加费用</caption></table></div>
+        <p class="small muted" style="margin-top:12px">AI 群友表中为平台模型 1 倍额度，平台模型按额度倍数计费；使用自有 API Key 时为 <span id="own-model-price">10</span> 萝卜 / 小时，模型调用费由你的供应商账户支付。群友启用后按功能费用计费，设置睡眠时段不会关闭收费开关。</p>
+      </div>
+      <div class="actions section"><a class="button" href="./help.html?command=.开通">如何切换套餐</a><a class="button" href="./help.html?command=.开启">如何开关功能</a></div>
+    </section>
+    <section class="section prose" id="carrots">
+      <p class="eyebrow">ABOUT CARROTS</p><h2>萝卜怎么用？</h2><p>萝卜是兔子的服务余额。群账户和个人账户分别保存；充值、转入、扣费后，都可以用 <code>.状态</code> 核对。</p>
+      <div class="grid two"><article class="card"><h3>给群充值</h3><p>在目标群发送 <code>.赞助 10</code>，想充给自己，使用 <code>.赞助 10 个人</code>。按提示点进链接扫付10元，金额对上即可到账。</p><a href="./help.html?command=.赞助">充值与订单说明 →</a></article><article class="card"><h3>把个人萝卜给群</h3><p>在目标群发送 <code>.投喂 1000</code>，把个人萝卜转入当前群；发送 <code>.投喂 全部</code> 转入全部余额。</p><a href="./help.html?command=.投喂">投喂与贡献排行 →</a></article></div>
+      <p style="margin-top:20px">群签到也可以获得群萝卜。想暂停服务，可以查看 <a href="./help.html?command=.开通">开通 free 档</a>的说明；只关闭某项功能时，套餐基础费用仍按当前套餐计算。</p>
+    </section>
+  </main>
+  <footer class="site-footer"><div><strong>WarframeRabbit · 因幡帝</strong>陪你查资料、看市场，也陪群友玩一会儿。</div><div class="footer-links"><a href="./help.html">指令大全</a><a href="./contact.html">联系黑猫</a></div></footer><div class="toast" id="site-toast" role="status" hidden></div>
+</body>
+</html>
+
