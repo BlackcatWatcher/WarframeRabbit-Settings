@@ -1,0 +1,8 @@
+{
+  "name": "warframe-rabbit-settings",
+  "installCommand": "",
+  "buildCommand": "",
+  "assets": {
+    "directory": "./"
+  }
+}
