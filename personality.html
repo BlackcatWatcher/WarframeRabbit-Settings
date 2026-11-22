@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101b17"><title>个性化编辑器 · 兔子帮助中心</title><script>
+    try {
+      if (localStorage.getItem("warframe-rabbit-settings-theme") === "light") {
+        document.documentElement.dataset.theme = "light";
+        document.querySelector('meta[name="theme-color"]').content = "#f8f6ef";
+      }
+    } catch {}
+  </script>
+  <link rel="icon" href="./icon.webp"><link rel="stylesheet" href="./site.css"><link rel="stylesheet" href="./personality.css">
+  <script type="module" src="./personality.js"></script>
+</head>
+<body class="personality-web"><a class="skip-link" href="#main">跳转到正文</a><header class="site-header"><div class="header-inner"><a class="site-brand" href="./index.html"><svg viewBox="0 0 32 40" aria-hidden="true"><path d="M9 24C3 15 3 1 7 1c4 0 5 11 6 17h3C17 12 20 0 24 2c4 2 1 16-3 22 9 10 3 16-6 16S1 34 9 24Z"/><circle cx="11" cy="29" r="1.3" fill="#172c26"/><circle cx="20" cy="29" r="1.3" fill="#172c26"/></svg><span><span class="brand-title">兔子帮助中心</span><span class="brand-caption">WARFRAME RABBIT</span></span></a><button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">菜单</button><nav class="site-nav" id="site-nav" aria-label="主导航"><a href="./index.html">首页</a><a href="./invite.html">邀请入群</a><a href="./new-group.html">新群设置</a><a href="./quickstart.html">快速上手</a><a href="./settings.html">配置中心</a><a href="./personality.html" aria-current="page">个性化</a><a href="./help.html">帮助中心</a><a href="./updates.html">更新公告</a><a href="./contact.html">联系反馈</a></nav><button class="theme-toggle" id="theme-toggle" type="button" aria-label="切换为浅色模式" title="切换为浅色模式"><svg class="theme-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg><svg class="theme-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A9 9 0 0 1 10 3.5 9 9 0 1 0 20.5 14Z"/></svg></button></div></header>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">WARFRAME RABBIT · PERSONALITY STUDIO</p>
+      <h1>个性化配置编辑器</h1>
+      <p>在浏览器中挑选字体、调整外观并导出 <code>.wrpersonality</code>，交给管理员导入使用。</p>
+    </div>
+    <div class="top-actions">
+      
+      <button id="new-package" type="button" class="secondary">新建默认方案</button>
+      <label class="button secondary" for="open-package">打开个性化包</label>
+      <input id="open-package" class="visually-hidden" type="file" accept=".wrpersonality,application/zip,application/octet-stream">
+      <button id="export-package" type="button" class="primary" disabled>导出个性化包</button>
+    </div>
+  </header>
+
+  <div class="statusbar"><span class="status-dot"></span><span id="status" role="status" aria-live="polite">正在加载编辑器</span><code id="digest">-</code></div>
+
+  <section class="delivery-guide" aria-label="个性化包交付流程">
+    <strong>怎么给用户用</strong>
+    <span id="delivery-guide-text">填写目标群号或群 UID 并导出即可。纯数字默认使用 QQ，其他平台可填写 3g123456 等完整 UID。管理员导入后会自动绑定该群并发送启用命令。</span>
+  </section>
+
+  <nav class="workspace-tabs" aria-label="编辑区域">
+    <button type="button" class="selected" data-editor-tab="appearance" aria-selected="true">外观与素材</button>
+    <button type="button" data-editor-tab="i18n" aria-selected="false">i18n 文案</button>
+  </nav>
+
+  <main id="main" class="workspace">
+    <form id="editor-form" class="editor-column" autocomplete="off">
+      <section class="panel" data-editor-view="appearance">
+        <div class="panel-heading"><div><span>01</span><h2>包信息</h2></div><small>外观与主题配置</small></div>
+        <div class="form-grid">
+          <label><span>目标群号 / 群 UID</span><input id="id" required pattern="(?:[1-9][0-9]*g)?[1-9][0-9]{4,19}" maxlength="160" placeholder="123456 或 3g123456"><small class="hint">纯数字默认添加 1g；也可填写其他平台前缀，例如 3g123456。</small></label>
+          <label><span>个性化备注</span><input id="name" required maxlength="64"><small class="hint">用于向管理员和其他人说明这套个性化，例如“粉色简约版”。</small></label>
+          <label><span>基础语言</span><select id="base_language"><option>国际服</option><option>国服</option><option>英文</option></select></label>
+          <label><span>HTML 样式</span><select id="style"><option value="rabbit-default">默认样式</option><option value="soft-card">柔光卡片</option><option value="rabbit-classic">兔子经典</option><option value="rabbit-compact">克制紧凑</option><option value="orbiter-console">轨道终端</option><option value="frosted-grid">冷雾晶格</option><option value="clean-report">清晰报告</option><option value="midnight-lotus">午夜莲华</option><option value="sakura-ink">樱墨和纸</option><option value="swiss-bulletin">瑞士公报</option><option value="mission-timetable">航站时刻表</option><option value="field-guide">博物图鉴</option><option value="comic-dispatch">漫画快报</option><option value="concrete-monolith">混凝土碑刻</option><option value="pixel-arcade">像素街机</option><option value="psychedelic-wave">迷幻波浪</option><option value="cyanotype-draft">蓝晒图纸</option><option value="cyberpunk">赛博朋克</option><option value="future-electronic">未来电子</option><option value="metal-industrial">金属工业</option><option value="hacker-terminal">黑客界面</option><option value="holographic">全息投影</option><option value="space-capsule">太空舱界面</option><option value="clear-glass">清澈玻璃</option><option value="vaporwave">蒸汽波</option><option value="acid-design">酸性设计</option><option value="military-tactical">军事战术</option><option value="dark-luxury">暗黑奢华</option><option value="biomorphic">生物形态</option><option value="glitch-art">故障艺术</option><option value="clay-morphism">黏土拟态</option><option value="zen-forest">木系森林·东方禅意</option><option value="candy-macaron">糖果马卡龙</option><option value="peach-girlish">少女心</option><option value="morandi-soft">莫兰迪温柔</option><option value="dream-bubbles">梦幻泡泡</option><option value="romantic-glow">恋爱氛围</option></select></label>
+          <label><span>布局</span><select id="layout"><option value="auto">自动</option><option value="short">短图</option><option value="long">长图</option></select></label>
+          <label><span>字体</span><select id="font"></select><small class="hint" id="font-hint">正在读取字体列表</small></label>
+          <label><span>背景文件</span><input id="background_file" readonly></label>
+          <label><span>角色文件</span><input id="avatar_file" readonly></label>
+        </div>
+      </section>
+
+      <section class="panel" data-editor-view="appearance">
+        <div class="panel-heading"><div><span>02</span><h2>尺寸与透明度</h2></div><small>与生产渲染范围一致</small></div>
+        <div class="form-grid compact-grid">
+          <label><span>字号</span><input id="font_size" type="number" min="30" max="120" step="1"></label>
+          <label><span>相对宽度（800 为基准）</span><input id="max_width" type="number" min="600" max="1200" step="10"><small class="hint">1000 表示各功能加宽 200；默认 1200 的页面变为 1400。</small></label>
+          <label><span>角色尺寸</span><input id="avatar_size" type="number" min="80" max="360" step="5"></label>
+          <label><span>水平偏移</span><input id="avatar_offset_x" type="number" min="-400" max="400" step="5"></label>
+          <label><span>垂直偏移</span><input id="avatar_offset_y" type="number" min="-400" max="400" step="5"></label>
+          <label><span>背景图不透明度</span><input id="bg_transparency" type="number" min="0" max="100" step="1"></label>
+          <label><span>内容底色不透明度 / 毛玻璃强度（互斥）</span><input id="fg_transparency" type="number" min="0" max="100" step="1"></label>
+          <label><span>角色不透明度</span><input id="avatar_transparency" type="number" min="0" max="200" step="1"><small class="hint">100 为正常不透明；内容重叠时可提高到 200 抵消自动减半。</small></label>
+          <label class="switch"><input id="glass_blur" type="checkbox"><span>启用主内容层毛玻璃（开启后数值只控制玻璃强度）</span></label>
+        </div>
+      </section>
+
+      <section class="panel" data-editor-view="appearance">
+        <div class="panel-heading"><div><span>03</span><h2>配色</h2></div><button id="restore-theme-defaults" type="button" class="text-button">恢复主题建议值</button></div>
+        <div class="color-grid">
+          <label><span>背景色</span><input id="bg_color" type="color"></label>
+          <label><span>外框颜色</span><input id="border_color" type="color"></label>
+          <label><span>边框文字</span><input id="border_text_color" type="color"></label>
+          <label><span>主题色</span><input id="theme_color" type="color"></label>
+          <label><span>基础文字</span><input id="base_text_color" type="color"></label>
+          <label><span>数值文字</span><input id="value_text_color" type="color"></label>
+          <label><span>通知文字</span><input id="notice_text_color" type="color"></label>
+          <label><span>成功文字</span><input id="success_text_color" type="color"></label>
+          <label><span>信息文字</span><input id="info_text_color" type="color"></label>
+          <label><span>警告文字</span><input id="warn_text_color" type="color"></label>
+          <label><span>备注文字</span><input id="subtitle_text_color" type="color"></label>
+        </div>
+      </section>
+
+      <section class="panel" data-editor-view="appearance">
+        <div class="panel-heading"><div><span>04</span><h2>背景与右侧图案</h2></div><small>PNG/JPEG，服务端重新校验</small></div>
+        <div class="asset-grid">
+          <label class="asset-drop"><strong>替换背景</strong><span id="background-state">沿用包内背景</span><input id="background-upload" type="file" accept="image/png,image/jpeg"></label>
+          <label class="asset-drop"><strong>替换右侧图案</strong><span id="avatar-state">沿用包内图案</span><input id="avatar-upload" type="file" accept="image/png,image/jpeg"></label>
+        </div>
+        <div id="theme-assets-panel" hidden>
+          <label class="asset-drop"><strong>组件装饰素材</strong><span>上传 header.png 等文件，在主题中通过素材名引用。</span><input id="theme-assets-upload" type="file" multiple accept="image/png,image/jpeg"></label>
+          <div class="asset-summary" id="theme-assets-list"></div>
+        </div>
+        <div class="asset-summary" id="asset-summary"></div>
+      </section>
+
+      <section class="panel i18n-panel" data-editor-view="i18n" hidden>
+        <div class="panel-heading"><div><span>05</span><h2>i18n 文案编辑</h2></div><small id="i18n-catalog-status">正在读取外围词典</small></div>
+        <div class="i18n-actions">
+          <div class="i18n-mode-tabs" role="group" aria-label="i18n 编辑模式">
+            <button type="button" class="selected" data-i18n-mode="fields" aria-selected="true">分类字段</button>
+            <button type="button" data-i18n-mode="json" aria-selected="false">格式化 JSON</button>
+          </div>
+          <div class="i18n-file-actions">
+            <label class="button secondary compact-button" for="i18n-import">导入 raw i18n</label>
+            <input id="i18n-import" class="visually-hidden" type="file" accept="application/json,.json">
+            <button id="i18n-export" type="button" class="secondary compact-button">导出 raw i18n</button>
+          </div>
+        </div>
+
+        <div id="i18n-fields-view">
+          <div class="locale-toolbar">
+            <div id="i18n-locales" class="locale-tabs" role="tablist" aria-label="语言"></div>
+            <button id="i18n-add-cn" type="button" class="secondary compact-button">+ 国服</button>
+            <div class="locale-add-other">
+              <input id="i18n-other-locale" type="text" maxlength="32" pattern="[A-Za-z][A-Za-z0-9-]{0,31}" placeholder="例如 ja 或 zh-Hant" aria-label="其他语言 locale">
+              <button id="i18n-add-other" type="button" class="secondary compact-button">添加其他语言</button>
+            </div>
+            <button id="i18n-delete-locale" type="button" class="danger-button compact-button" disabled>删除当前语言</button>
+          </div>
+          <p class="hint">默认提供国际服；国服和其他语言按需增加。FooterText 会更新右侧预览。开头文案随包导出供机器人使用，右侧正文采用固定示例。</p>
+          <div id="i18n-categories" class="i18n-categories"></div>
+        </div>
+
+        <div id="i18n-json-view" hidden>
+          <div class="json-preview-heading"><span>外围 catalog 分类 + 当前语言内容</span><button id="i18n-copy-json" type="button" class="text-button">复制 JSON</button></div>
+          <pre id="i18n-json-preview" class="i18n-json-preview">-</pre>
+        </div>
+      </section>
+
+      <section class="panel" id="custom-html-panel" data-editor-view="appearance" hidden>
+        <div class="panel-heading"><div><span>06</span><h2>自定义 HTML</h2></div><button id="load-custom-starter" type="button" class="text-button">恢复安全基础模板</button></div>
+        <p class="hint" id="custom-html-hint">选择 HTML 主题后开始编辑。</p>
+        <details><summary>组件参数与插槽参考</summary><pre id="component-contract"></pre></details>
+        <textarea id="custom_html" class="code-editor tall" rows="24" spellcheck="false" maxlength="196608"></textarea>
+      </section>
+
+      <section class="panel" id="apply-panel" hidden>
+        <div class="panel-heading"><div><span>07</span><h2>导入到当前服务</h2></div><small>按包内群号自动绑定</small></div>
+        <div class="form-grid">
+          <label><span>后台写入 Token</span><input id="apply-token" type="password" autocomplete="new-password"></label>
+          <label><span>操作人</span><input id="apply-actor" maxlength="160"></label>
+          <label class="wide-field"><span>应用原因</span><input id="apply-reason" maxlength="500"></label>
+        </div>
+        <div class="apply-guide" id="apply-guide"><strong>导入结果</strong><span id="apply-guide-text">服务端会按包内群号保存模板，并向该群发送启用提示。</span><button id="copy-apply-command" type="button" class="secondary compact-button" hidden>复制启用命令</button></div>
+        <div class="hosted-actions"><button id="load-current-package" type="button" class="secondary full">读取该群现有模板</button><button id="apply-package" type="button" class="primary full">导入并通知群</button></div>
+      </section>
+    </form>
+
+    <aside class="preview-column">
+      <section class="panel preview-panel">
+        <div class="panel-heading"><div><span>LIVE</span><h2>示例实时预览</h2></div><small id="renderer">等待生成</small></div>
+        <div class="fixture-tabs" role="group" aria-label="预览内容">
+          <button type="button" data-fixture="short" class="selected">短状态</button>
+          <button type="button" data-fixture="fissure">裂隙倒计时</button>
+          <button type="button" data-fixture="components">全部组件</button>
+          
+          <button type="button" data-fixture="table">市场查询</button>
+          
+          
+          
+          <button type="button" data-fixture="english">全英文</button>
+          
+          
+        </div>
+        <button id="render-preview" type="button" class="primary full" disabled>刷新示例预览</button>
+        <div class="preview-stage"><img id="preview-image" alt="个性化渲染预览" hidden><p id="preview-empty">打开或新建一个个性化包后开始预览。</p></div>
+      </section>
+
+      <section class="panel inspection-panel">
+        <div class="panel-heading"><div><span>SCAN</span><h2>包检查</h2></div><small id="warning-count">0 条警告</small></div>
+        <ul id="warnings"><li>尚未扫描</li></ul>
+        <details><summary>查看 scan JSON</summary><pre id="scan-json">-</pre></details>
+      </section>
+    </aside>
+  </main>
+
+  <footer class="site-footer"><div><strong>WarframeRabbit · 因幡帝</strong>陪你查资料、看市场，也陪群友玩一会儿。</div><div class="footer-links"><a href="./help.html">指令大全</a><a href="./contact.html">联系黑猫</a></div></footer><div class="toast" id="site-toast" role="status" hidden></div>
+</body>
+</html>

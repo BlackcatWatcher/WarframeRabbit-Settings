@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101b17">
+  <meta name="description" content="从等待审核、充萝卜到邀请兔子进群，逐步完成投喂、开通套餐、开启功能和默认服区设置。">
+  <title>新群设置 · 兔子帮助中心</title>
+  <script>
+    try {
+      if (localStorage.getItem("warframe-rabbit-settings-theme") === "light") {
+        document.documentElement.dataset.theme = "light";
+        document.querySelector('meta[name="theme-color"]').content = "#f8f6ef";
+      }
+    } catch {}
+  </script>
+  <link rel="stylesheet" href="./site.css">
+  <script src="./site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳转到正文</a><header class="site-header"><div class="header-inner"><a class="site-brand" href="./index.html"><svg viewBox="0 0 32 40" aria-hidden="true"><path d="M9 24C3 15 3 1 7 1c4 0 5 11 6 17h3C17 12 20 0 24 2c4 2 1 16-3 22 9 10 3 16-6 16S1 34 9 24Z"/><circle cx="11" cy="29" r="1.3" fill="#172c26"/><circle cx="20" cy="29" r="1.3" fill="#172c26"/></svg><span><span class="brand-title">兔子帮助中心</span><span class="brand-caption">WARFRAME RABBIT</span></span></a><button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">菜单</button><nav class="site-nav" id="site-nav" aria-label="主导航"><a href="./index.html">首页</a><a href="./invite.html">邀请入群</a><a href="./new-group.html" aria-current="page">新群设置</a><a href="./quickstart.html">快速上手</a><a href="./settings.html">配置中心</a><a href="./personality.html">个性化</a><a href="./help.html">帮助中心</a><a href="./updates.html">更新公告</a><a href="./contact.html">联系反馈</a></nav><button class="theme-toggle" id="theme-toggle" type="button" aria-label="切换为浅色模式" title="切换为浅色模式"><svg class="theme-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg><svg class="theme-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A9 9 0 0 1 10 3.5 9 9 0 1 0 20.5 14Z"/></svg></button></div></header>
+  <main id="main" class="setup-guide">
+    <header class="page-head"><p class="eyebrow">SET UP YOUR GROUP</p><h1>兔子进群，接下来这样做。</h1><p class="lead">从提交申请到第一次正常使用，跟着下面的步骤完成设置。还没了解邀请方式，可以先看<a href="./invite.html">邀请入群</a>。</p><nav class="quick-links" aria-label="新群设置步骤"><a href="#review">等待审核</a><span aria-hidden="true">→</span><a href="#recharge">充萝卜</a><span aria-hidden="true">→</span><a href="#invite">邀请兔子</a><span aria-hidden="true">→</span><a href="#activate">开通套餐</a><span aria-hidden="true">→</span><a href="#features">开启功能</a><span aria-hidden="true">→</span><a href="#finish">服区与检查</a></nav></header>
+
+    <section id="review" class="panel setup-intro" aria-labelledby="review-title">
+      <p class="eyebrow">01 / WAIT FOR REVIEW</p><h2 id="review-title">提交申请后，等待审核</h2>
+      <p>把填写好的申请表发给黑猫 <strong>838652229</strong> 后，请等待审核，通常在 1 天内处理。可以趁这段时间阅读申请表、了解<a href="./invite.html#pricing">套餐和费用</a>，也可以先按下方的手动方式充萝卜。</p>
+      <p class="muted">审核通过后，黑猫会提供分配给你的兔子 QQ 号。邀请时使用这个账号；申请联系人和实际入群的兔子账号可能不同。</p>
+      <div class="actions"><a class="button" href="./assets/rabbit-invitation-form-v4.0.docx" download="兔子邀请进群申请表v4.0.docx">下载申请表</a><button class="button" type="button" data-copy="838652229">复制黑猫QQ号，加好友后发送申请表</button></div>
+    </section>
+
+    <section id="recharge" class="section" aria-labelledby="recharge-title">
+      <p class="eyebrow">02 / TOP UP CARROTS</p><h2 id="recharge-title">先充萝卜，选适合你的方式</h2>
+      <p class="lead">萝卜是兔子的服务余额，个人账户和群账户分开保存。等待入群时可以手动充值；兔子已经在群里时，可以直接用指令自动充到当前群。</p>
+      <div class="grid two recharge-options">
+        <article class="panel" aria-labelledby="manual-title">
+          <span class="badge">可在审核期间提前操作</span><h3 id="manual-title">手动充萝卜</h3>
+          <p>使用申请表中的支付宝或微信入口，付款时<strong>备注你的 QQ 号</strong>，方便黑猫核对并为你充值。</p>
+          <ol><li>用对应的 App 扫描下方二维码；手机上可以点开原图，保存后在 App 内识别。</li><li>按页面提示支付或下单，填好 QQ 号，并保留订单或付款记录。</li><li>等待黑猫人工处理，一般半天内处理；超过半天未到账，可以带着记录联系黑猫核对。</li></ol>
+          <figure class="recharge-poster"><a href="./assets/recharge-manual.png" aria-label="打开支付宝与微信手动充值图片原图"><img src="./assets/recharge-manual.png" width="398" height="200" alt="手动充值：左侧用支付宝扫一扫，右侧用微信识别黑猫天才杂货铺小程序码"></a></figure>
+          <p class="small muted">手动充值通常先充到你备注的 QQ 号，成为个人萝卜。兔子入群后，再用 <code>.投喂 全部</code> 转到目标群；如果已经直接充到群，就跳过投喂。</p>
+          <details class="faq"><summary>支付宝领红包与海外下单入口</summary><div><div class="recharge-qr-grid">
+            <figure class="recharge-qr"><a href="./assets/recharge-coupon.png" aria-label="打开支付宝领红包二维码原图"><img src="./assets/recharge-coupon.png" width="190" height="190" alt="申请表中的支付宝领红包二维码" loading="lazy"></a><figcaption><strong>支付宝领红包</strong><span>可先领红包，再下单</span></figcaption></figure>
+            <figure class="recharge-qr"><a href="./assets/recharge-overseas.png" aria-label="打开淘宝海外下单二维码原图"><img src="./assets/recharge-overseas.png" width="145" height="145" alt="申请表中的淘宝海外下单二维码" loading="lazy"></a><figcaption><strong>淘宝海外下单</strong><span>外币下单可自动兑换</span></figcaption></figure>
+          </div><p class="small muted">海外下单后请联系黑猫提醒处理。这里的入口均来自邀请申请表，实际商品和优惠以打开后的页面为准。</p></div></details>
+        </article>
+
+        <article class="panel" aria-labelledby="automatic-title">
+          <span class="badge">兔子已入群时推荐</span><h3 id="automatic-title">自动充萝卜</h3>
+          <p>在<strong>要充值的目标群</strong>里发送 <code>.赞助 金额</code> 创建订单，群员也可以充值。金额单位是元，下面以充 10 元为例。</p>
+          <p><strong>① 发送指令，查看兔子返回的订单号、应付金额和充值说明。</strong></p>
+          <div class="grid two recharge-targets">
+            <section><h4>直充到群</h4><div class="command-line"><code>.赞助 10</code><button class="copy-button" type="button" data-copy=".赞助 10" aria-label="复制直充到群指令">复制指令</button></div></section>
+            <section><h4>充到个人</h4><div class="command-line"><code>.赞助 10 个人</code><button class="copy-button" type="button" data-copy=".赞助 10 个人" aria-label="复制充到个人指令">复制指令</button></div></section>
+          </div>
+          <p><strong>② 必须先收到订单号，再扫描下方自动充值入口付款。</strong>选择微信或支付宝，<strong>严格按订单提示的应付金额支付</strong>，包括可能出现的小数尾数。没有订单号时，请先发送上面的充值指令。</p>
+          <figure class="recharge-poster"><a href="./assets/recharge-automatic.png" aria-label="打开微信与支付宝自动充值入口二维码原图"><img src="./assets/recharge-automatic.png" width="400" height="249" alt="自动充值入口：左侧为微信，右侧为支付宝；先取得订单号，再按订单提示的金额付款"></a><figcaption>自动充值入口 · 左侧微信 / 右侧支付宝</figcaption></figure>
+          <p>③ 正常情况下1分钟内到账，到账时会在群里收到提示。没加“个人”的订单会直充到当前群，无需再投喂。</p>
+          <h4>付款后怎样确认？</h4><p>正常情况下到账会返回到账提示。发送 <code>.赞助 查询 订单号</code> 查看支付状态，把“订单号”替换为兔子返回的实际号码；<code>.赞助 列表</code> 可查看记录。未到账时保留订单号和支付记录，联系黑猫核对。</p>
+          <div class="actions"><a href="./help.html?command=.赞助">充值与订单帮助 →</a><a href="https://www.bilibili.com/opus/1030435200652279816">自动充值操作说明 →</a></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="invite" class="section panel" aria-labelledby="invite-title">
+      <p class="eyebrow">03 / INVITE YOUR RABBIT</p><h2 id="invite-title">把分配给你的兔子拉进群</h2>
+      <ol><li>审核通过后，将<strong>黑猫提供的兔子 QQ 号</strong>加为好友。</li><li>好友添加完成后，邀请这个兔子账号加入你申请的群，等待兔子入群。</li><li>如果兔子3分钟内没有进群，先联系黑猫确认；兔子账号加你为好友后，再邀请一次。</li></ol>
+      <p class="muted">下面的投喂、套餐和功能设置，都在你自己的目标群内操作。通过 QQ 官方机器人入口邀请的群，可在邀请完成后直接继续下面的设置。</p>
+    </section>
+
+    <section id="activate" class="section" aria-labelledby="activate-title">
+      <p class="eyebrow">04 / ACTIVATE YOUR PLAN</p><h2 id="activate-title">萝卜到群后，再开通想要的套餐</h2>
+      <p class="lead">先确认余额在哪，再开通套餐。下面的指令分条发送，管理指令开头的英文句点 <code>.</code> 要保留。</p>
+      <div class="grid two">
+        <article class="panel"><h3>① 个人萝卜投喂到群</h3><p>手动充值或个人自动充值到账后，在目标群输入：</p><div class="command-line"><code>.投喂 全部</code><button class="copy-button" type="button" data-copy=".投喂 全部">复制指令</button></div><p>这会把你当前可用的个人萝卜全部转入本群。如果只想转一部分，可以用 <code>.投喂 1000</code>，数字单位是萝卜。</p><p class="small muted">已经直接充到群账户的萝卜，无需再投喂。想查个人余额，可以发送 <code>.状态 个人</code>。</p><a href="./help.html?command=.投喂">查看投喂说明 →</a></article>
+        <article class="panel"><h3>② 选择并开通套餐</h3><p>由群主或管理员在群内发送，例如：</p><div class="command-line"><code>.开通 SVIP</code><button class="copy-button" type="button" data-copy=".开通 SVIP">复制指令</button></div><p>SVIP 是一个示例，可以按群的功能需求和查询额度选择其他套餐；用 <code>.开通</code> 查看可用套餐，用 <code>.状态</code> 确认当前套餐、余额及每小时消耗。</p><p class="small muted">套餐可以随时更换，萝卜按实际开启的套餐和功能持续消耗。</p><a href="./invite.html#pricing">比较套餐与费用 →</a></article>
+      </div>
+    </section>
+
+    <section id="features" class="section panel" aria-labelledby="features-title">
+      <p class="eyebrow">05 / TURN ON FEATURES</p><h2 id="features-title">按需开启签到、推送等功能</h2>
+      <p>开通套餐后，再由群管理按需开启功能。下方常用功能的开启指令，在目标群内按需分条发送。</p>
+      <div class="grid two feature-enable-list">
+        <div class="command-line"><code>.开启 签到</code><button class="copy-button" type="button" data-copy=".开启 签到">复制指令</button></div>
+        <div class="command-line"><code>.开启 推送</code><button class="copy-button" type="button" data-copy=".开启 推送">复制指令</button></div>
+        <div class="command-line"><code>.开启 直播推送</code><button class="copy-button" type="button" data-copy=".开启 直播推送">复制指令</button></div>
+        <div class="command-line"><code>.开启 小游戏</code><button class="copy-button" type="button" data-copy=".开启 小游戏">复制指令</button></div>
+        <div class="command-line"><code>.开启 AI群友</code><button class="copy-button" type="button" data-copy=".开启 AI群友">复制指令</button></div>
+        <div class="command-line"><code>.开启 聊天</code><button class="copy-button" type="button" data-copy=".开启 聊天">复制指令</button></div>
+        <div class="command-line"><code>.开启 群验证</code><button class="copy-button" type="button" data-copy=".开启 群验证">复制指令</button></div>
+        <div class="command-line"><code>.开启 个性化</code><button class="copy-button" type="button" data-copy=".开启 个性化">复制指令</button></div>
+        <div class="command-line"><code>.开启 云甲甲</code><button class="copy-button" type="button" data-copy=".开启 云甲甲">复制指令</button></div>
+      </div>
+      <p>功能可以独立开启，但同一功能在不同套餐下可能免费，也可能额外消耗萝卜。例如 lite 套餐可以开推送，是否增加费用要看<a href="./invite.html#pricing">套餐价目表</a>。每次调整后，用 <code>.状态</code> 核对实际消耗。</p>
+      <p>开启总开关后，还可以配置具体内容：想推送哪些任务、签到怎样显示，都有各自设置。进入配置中心编辑群设置，复制生成的指令，再由群管理发回目标群即可。</p>
+      <div class="actions"><a class="button" href="./settings.html">进入配置中心</a><a href="./help.html?command=.开启">功能开关帮助 →</a><a href="./help.html?command=签到">签到详细用法 →</a></div>
+    </section>
+
+    <section id="finish" class="section" aria-labelledby="finish-title">
+      <p class="eyebrow">06 / READY TO GO</p><h2 id="finish-title">设好服区，检查一下就能用了</h2>
+      <div class="grid two">
+        <article class="panel"><h3>设置本群常用服区</h3><p>国际服 PC 群可以使用 <code>.默认平台 pc</code>；国服群发送：</p><div class="command-line"><code>.默认平台 国服</code><button class="copy-button" type="button" data-copy=".默认平台 国服">复制指令</button></div><p>其他平台按需要使用 <code>.默认平台 ps</code>、<code>.默认平台 sw</code> 或 <code>.默认平台 xb</code>。默认服区决定查询使用哪套数据，中文回复也可以查询国际服。</p><a href="./help.html?command=.默认平台">默认平台说明 →</a></article>
+        <article class="panel"><h3>最后核对群状态</h3><div class="command-line"><code>.状态</code><button class="copy-button" type="button" data-copy=".状态">复制指令</button></div><ul><li>套餐是否是你刚选择的类型。</li><li>萝卜是否已充入本群，而不是只停留在个人账户。</li><li>已开启功能、每小时消耗和预计剩余时间是否符合预期。</li></ul><p>接着发送 <code>帮助</code> 查看功能列表，或发送 <code>帮助 指令名</code> 了解具体用法。</p></article>
+      </div>
+      <div class="actions section"><a class="button primary" href="./quickstart.html">继续快速上手</a><a class="button" href="https://www.bilibili.com/video/BV1Rxna6TEfb/">观看新群设置视频</a><a href="./help.html">浏览全部指令 →</a></div>
+    </section>
+    <nav class="section panel" aria-label="一键设置新群"><h2>把套餐、功能和服区一次设好</h2><p>到配置中心选择适合本群的套餐和功能开关，查看每小时萝卜消耗与 30 天参考价格，复制一条指令发回群里。</p><a class="button primary" href="./settings.html?content=setup">一键设置新群 →</a></nav>
+  </main>
+  <footer class="site-footer"><div><strong>WarframeRabbit · 因幡帝</strong>陪你查资料、看市场，也陪群友玩一会儿。</div><div class="footer-links"><a href="./help.html">指令大全</a><a href="./contact.html">联系黑猫</a></div></footer><div class="toast" id="site-toast" role="status" hidden></div>
+</body>
+</html>
