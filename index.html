@@ -3,14 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#101b17">
+  <meta name="theme-color" content="#1d1418">
+  <link rel="icon" href="./icon.webp">
   <meta name="description" content="WarframeRabbit 兔子帮助中心：查指令、看教程、配置推送，了解如何邀请兔子加入你的群。">
   <title>兔子帮助中心 · WarframeRabbit</title>
   <script>
     try {
       if (localStorage.getItem("warframe-rabbit-settings-theme") === "light") {
         document.documentElement.dataset.theme = "light";
-        document.querySelector('meta[name="theme-color"]').content = "#f8f6ef";
+        document.querySelector('meta[name="theme-color"]').content = "#fff9f2";
       }
     } catch {}
   </script>
@@ -18,11 +19,11 @@
   <script src="./site.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#main">跳转到正文</a><header class="site-header"><div class="header-inner"><a class="site-brand" href="./index.html"><svg viewBox="0 0 32 40" aria-hidden="true"><path d="M9 24C3 15 3 1 7 1c4 0 5 11 6 17h3C17 12 20 0 24 2c4 2 1 16-3 22 9 10 3 16-6 16S1 34 9 24Z"/><circle cx="11" cy="29" r="1.3" fill="#172c26"/><circle cx="20" cy="29" r="1.3" fill="#172c26"/></svg><span><span class="brand-title">兔子帮助中心</span><span class="brand-caption">WARFRAME RABBIT</span></span></a><button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">菜单</button><nav class="site-nav" id="site-nav" aria-label="主导航"><a href="./index.html" aria-current="page">首页</a><a href="./invite.html">邀请入群</a><a href="./new-group.html">新群设置</a><a href="./quickstart.html">快速上手</a><a href="./settings.html">配置中心</a><a href="./personality.html">个性化</a><a href="./help.html">帮助中心</a><a href="./updates.html">更新公告</a><a href="./contact.html">联系反馈</a></nav><button class="theme-toggle" id="theme-toggle" type="button" aria-label="切换为浅色模式" title="切换为浅色模式"><svg class="theme-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg><svg class="theme-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A9 9 0 0 1 10 3.5 9 9 0 1 0 20.5 14Z"/></svg></button></div></header>
+  <a class="skip-link" href="#main">跳转到正文</a><header class="site-header"><div class="header-inner"><a class="site-brand" href="./index.html"><svg viewBox="0 0 40 44" aria-hidden="true"><path d="M13 21C8 12 7 3 12 2c4-1 6 9 6 17Z" fill="var(--ear-fill)" stroke="var(--border)" stroke-width="2" stroke-linejoin="round"/><path d="M13.5 18C11 12 10.5 6 12.6 5.5c1.9-.5 3 5.5 3.2 11.5Z" fill="var(--ear-inner)"/><path d="M22 19c1-9 5-17 10-15 4 2-1 11-6 18Z" fill="var(--ear-fill)" stroke="var(--border)" stroke-width="2" stroke-linejoin="round"/><path d="M24 18c1-6 4-11.5 6-10.5 1.8.9-1 6.5-4.2 11.5Z" fill="var(--ear-inner)"/><ellipse cx="20" cy="30" rx="13" ry="11" fill="var(--ear-fill)" stroke="var(--border)" stroke-width="2"/><ellipse cx="11.5" cy="32" rx="2.4" ry="1.5" fill="var(--pink)" opacity=".45"/><ellipse cx="28.5" cy="32" rx="2.4" ry="1.5" fill="var(--pink)" opacity=".45"/><circle cx="15" cy="29.5" r="2.1" fill="var(--eye-fill)"/><circle cx="25" cy="29.5" r="2.1" fill="var(--eye-fill)"/><circle cx="15.6" cy="28.8" r=".7" fill="#fff"/><circle cx="25.6" cy="28.8" r=".7" fill="#fff"/><path d="M18.2 33q1.8 2 3.6 0" fill="none" stroke="var(--border)" stroke-width="1.6" stroke-linecap="round"/><path d="M20 39l2.5 3.5h-5Z" fill="var(--carrot)"/><path d="M18.5 38.8q1.5-1.8 3 0" fill="none" stroke="var(--leaf)" stroke-width="1.8" stroke-linecap="round"/></svg><span><span class="brand-title">兔子帮助中心</span><span class="brand-caption">因幡帝 · 幸运白兔小铺</span></span></a><button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">菜单</button><nav class="site-nav" id="site-nav" aria-label="主导航"><a href="./index.html" aria-current="page">首页</a><a href="./invite.html">邀请入群</a><a href="./new-group.html">新群设置</a><a href="./quickstart.html">快速上手</a><a href="./settings.html">配置中心</a><a href="./personality.html">个性化</a><a href="./help.html">帮助中心</a><a href="./updates.html">更新公告</a><a href="./contact.html">联系反馈</a></nav><button class="theme-toggle" id="theme-toggle" type="button" aria-label="切换为日间晴日模式" title="切换为日间晴日模式"><svg class="theme-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg><svg class="theme-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A9 9 0 0 1 10 3.5 9 9 0 1 0 20.5 14Z"/></svg><span class="theme-toggle-text theme-label-dark">切换晴日</span><span class="theme-toggle-text theme-label-light">切换暖夜</span></button></div></header>
   <main id="main">
     <section class="hero" aria-labelledby="hero-title">
       <div>
-        <p class="eyebrow">WARFRAME RABBIT / 因幡帝</p>
+        <p class="eyebrow">幸运白兔 · 因幡帝值班中</p>
         <div class="hero-heading">
           <img class="hero-avatar" src="./icon.webp" width="88" height="88" alt="因幡帝头像" fetchpriority="high">
           <h1 id="hero-title">全面且专业的<span>Tenno好帮手。</span></h1>
@@ -32,7 +33,7 @@
         <div class="quick-links"><a href="./quickstart.html">第一次用？从这里开始</a><a href="./settings.html">已经有兔子？去配置</a></div>
       </div>
       <div class="terminal" aria-label="指令用法示例">
-        <div class="terminal-top">A LITTLE HELP FROM RABBIT</div>
+        <div class="terminal-top"><span>群聊便签 · 叫兔子帮忙</span><span class="terminal-status">在线响应</span></div>
         <div class="terminal-body">
           <div class="chat-question">我想知道现在能刷什么</div>
           <div class="chat-answer"><strong>从这些指令开始</strong><p><code>裂隙</code> 看当前开核桃任务<br><code>周报</code> 整理本周轮换清单<br><code>物品 绝路</code> 了解装备与用途</p></div>
@@ -48,17 +49,17 @@
     <section class="section" aria-labelledby="features-title">
       <div class="section-heading"><h2 id="features-title">玩 Warframe，也照顾你的群。</h2><a href="./help.html">查看完整指令 →</a></div>
       <div class="grid">
-        <article class="card"><span class="card-number">01 / WORLD STATE</span><h3>任务与轮换</h3><p>裂隙、仲裁、赏金、奸商和每周任务，出发前先看一眼。</p><a href="./help.html?q=%E8%BD%AE%E6%8D%A2">查看相关指令 →</a></article>
-        <article class="card"><span class="card-number">02 / KNOWLEDGE</span><h3>资料与养成</h3><p>查物品、掉落、遗物和配卡；从萌新问题找到下一步。</p><a href="./help.html?q=%E7%89%A9%E5%93%81">查看相关指令 →</a></article>
-        <article class="card"><span class="card-number">03 / MARKET</span><h3>行情与紫卡</h3><p>查询国际服与国服市场，识别紫卡截图，设置价格监控。</p><a href="./help.html?q=%E5%B8%82%E5%9C%BA">查看相关指令 →</a></article>
-        <article class="card"><span class="card-number">04 / NOTIFICATIONS</span><h3>订阅与提醒</h3><p>蹲想刷的任务、等铸造完成，让需要的信息主动来找你。</p><a href="./settings.html">进入配置中心 →</a></article>
-        <article class="card"><span class="card-number">05 / GROUP LIFE</span><h3>签到与小游戏</h3><p>签到、猜词、21点、回廊和群友配对，让群里热闹一点。</p><a href="./help.html?group=%E5%B0%8F%E6%B8%B8%E6%88%8F">看看怎么玩 →</a></article>
-        <article class="card"><span class="card-number">06 / YOUR RABBIT</span><h3>AI 群友与群管理</h3><p>给兔子选个人格，设置群验证和欢迎语，按自己的节奏使用。</p><a href="./help.html?command=.AI%E7%BE%A4%E5%8F%8B">了解 AI 群友 →</a></article>
+        <article class="card"><span class="card-number">01 · 每日周常</span><h3>任务与轮换</h3><p>裂隙、仲裁、赏金、奸商和每周任务，出发前先看一眼。</p><a href="./help.html?q=%E8%BD%AE%E6%8D%A2">查看相关指令 →</a></article>
+        <article class="card"><span class="card-number">02 · 图鉴配卡</span><h3>资料与养成</h3><p>查物品、掉落、遗物和配卡；从萌新问题找到下一步。</p><a href="./help.html?q=%E7%89%A9%E5%93%81">查看相关指令 →</a></article>
+        <article class="card"><span class="card-number">03 · 市场估价</span><h3>行情与紫卡</h3><p>查询国际服与国服市场，识别紫卡截图，设置价格监控。</p><a href="./help.html?q=%E5%B8%82%E5%9C%BA">查看相关指令 →</a></article>
+        <article class="card"><span class="card-number">04 · 蹲点推送</span><h3>订阅与提醒</h3><p>蹲想刷的任务、等铸造完成，让需要的信息主动来找你。</p><a href="./settings.html">进入配置中心 →</a></article>
+        <article class="card"><span class="card-number">05 · 群聊娱乐</span><h3>签到与小游戏</h3><p>签到、猜词、21点、回廊和群友配对，让群里热闹一点。</p><a href="./help.html?group=%E5%B0%8F%E6%B8%B8%E6%88%8F">看看怎么玩 →</a></article>
+        <article class="card"><span class="card-number">06 · 人格外观</span><h3>AI 群友与群管理</h3><p>给兔子选个人格，设置群验证和欢迎语，按自己的节奏使用。</p><a href="./help.html?command=.AI%E7%BE%A4%E5%8F%8B">了解 AI 群友 →</a></article>
       </div>
     </section>
     <section class="section grid two" aria-label="继续了解兔子">
-      <article class="panel"><p class="eyebrow">START HERE</p><h2>一条指令，就是一次开始。</h2><p class="muted">第一次使用、如何查帮助、怎样分清个人和群配置，都从快速上手开始。</p><a class="button" href="./quickstart.html">阅读快速上手</a></article>
-      <article class="panel"><p class="eyebrow">WATCH & LEARN</p><h2>想看着操作？</h2><p class="muted">从认识兔子到每项功能的用法，视频说明书陪你一步步来。</p><a class="button" href="./videos.html">观看视频教程 ↗</a></article>
+      <article class="panel"><p class="eyebrow">初次见面</p><h2>一条指令，就是一次开始。</h2><p class="muted">第一次使用、如何查帮助、怎样分清个人和群配置，都从快速上手开始。</p><a class="button" href="./quickstart.html">阅读快速上手</a></article>
+      <article class="panel"><p class="eyebrow">视频说明书</p><h2>想看着操作？</h2><p class="muted">从认识兔子到每项功能的用法，视频说明书陪你一步步来。</p><a class="button" href="./videos.html">观看视频教程 ↗</a></article>
     </section>
   </main>
   <footer class="site-footer"><div><strong>WarframeRabbit · 因幡帝</strong>陪你查资料、看市场，也陪群友玩一会儿。</div><div class="footer-links"><a href="./help.html">指令大全</a><a href="./contact.html">联系黑猫</a></div></footer><div class="toast" id="site-toast" role="status" hidden></div>
