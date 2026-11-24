@@ -1,17 +1,17 @@
 <!doctype html>
-<html lang="zh-CN" data-theme="dark">
+<html lang="zh-CN" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#1d1418">
+  <meta name="theme-color" content="#fff9f2">
   <link rel="icon" href="./icon.webp">
   <meta name="description" content="从等待审核、邀请兔子进群到充萝卜，逐步完成投喂、开通套餐、开启功能和默认服区设置。">
   <title>新群设置 · 兔子帮助中心</title>
   <script>
     try {
-      if (localStorage.getItem("warframe-rabbit-settings-theme") === "light") {
-        document.documentElement.dataset.theme = "light";
-        document.querySelector('meta[name="theme-color"]').content = "#fff9f2";
+      if (localStorage.getItem("warframe-rabbit-settings-theme") === "dark") {
+        document.documentElement.dataset.theme = "dark";
+        document.querySelector('meta[name="theme-color"]').content = "#1d1418";
       }
     } catch {}
   </script>
@@ -19,7 +19,7 @@
   <script src="./site.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#main">跳转到正文</a><header class="site-header"><div class="header-inner"><a class="site-brand" href="./index.html"><svg viewBox="0 0 40 44" aria-hidden="true"><path d="M13 21C8 12 7 3 12 2c4-1 6 9 6 17Z" fill="var(--ear-fill)" stroke="var(--border)" stroke-width="2" stroke-linejoin="round"/><path d="M13.5 18C11 12 10.5 6 12.6 5.5c1.9-.5 3 5.5 3.2 11.5Z" fill="var(--ear-inner)"/><path d="M22 19c1-9 5-17 10-15 4 2-1 11-6 18Z" fill="var(--ear-fill)" stroke="var(--border)" stroke-width="2" stroke-linejoin="round"/><path d="M24 18c1-6 4-11.5 6-10.5 1.8.9-1 6.5-4.2 11.5Z" fill="var(--ear-inner)"/><ellipse cx="20" cy="30" rx="13" ry="11" fill="var(--ear-fill)" stroke="var(--border)" stroke-width="2"/><ellipse cx="11.5" cy="32" rx="2.4" ry="1.5" fill="var(--pink)" opacity=".45"/><ellipse cx="28.5" cy="32" rx="2.4" ry="1.5" fill="var(--pink)" opacity=".45"/><circle cx="15" cy="29.5" r="2.1" fill="var(--eye-fill)"/><circle cx="25" cy="29.5" r="2.1" fill="var(--eye-fill)"/><circle cx="15.6" cy="28.8" r=".7" fill="#fff"/><circle cx="25.6" cy="28.8" r=".7" fill="#fff"/><path d="M18.2 33q1.8 2 3.6 0" fill="none" stroke="var(--border)" stroke-width="1.6" stroke-linecap="round"/><path d="M20 39l2.5 3.5h-5Z" fill="var(--carrot)"/><path d="M18.5 38.8q1.5-1.8 3 0" fill="none" stroke="var(--leaf)" stroke-width="1.8" stroke-linecap="round"/></svg><span><span class="brand-title">兔子帮助中心</span><span class="brand-caption">因幡帝 · 幸运白兔小铺</span></span></a><button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">菜单</button><nav class="site-nav" id="site-nav" aria-label="主导航"><a href="./index.html">首页</a><a href="./invite.html">邀请入群</a><a href="./new-group.html" aria-current="page">新群设置</a><a href="./quickstart.html">快速上手</a><a href="./settings.html">配置中心</a><a href="./personality.html">个性化</a><a href="./help.html">帮助中心</a><a href="./updates.html">更新公告</a><a href="./contact.html">联系反馈</a></nav><button class="theme-toggle" id="theme-toggle" type="button" aria-label="切换为日间晴日模式" title="切换为日间晴日模式"><svg class="theme-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg><svg class="theme-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A9 9 0 0 1 10 3.5 9 9 0 1 0 20.5 14Z"/></svg><span class="theme-toggle-text theme-label-dark">切换晴日</span><span class="theme-toggle-text theme-label-light">切换暖夜</span></button></div></header>
+  <a class="skip-link" href="#main">跳转到正文</a><header class="site-header"><div class="header-inner"><a class="site-brand" href="./index.html"><svg viewBox="0 0 40 44" aria-hidden="true"><path d="M13 21C8 12 7 3 12 2c4-1 6 9 6 17Z" fill="var(--ear-fill)" stroke="var(--border)" stroke-width="2" stroke-linejoin="round"/><path d="M13.5 18C11 12 10.5 6 12.6 5.5c1.9-.5 3 5.5 3.2 11.5Z" fill="var(--ear-inner)"/><path d="M22 19c1-9 5-17 10-15 4 2-1 11-6 18Z" fill="var(--ear-fill)" stroke="var(--border)" stroke-width="2" stroke-linejoin="round"/><path d="M24 18c1-6 4-11.5 6-10.5 1.8.9-1 6.5-4.2 11.5Z" fill="var(--ear-inner)"/><ellipse cx="20" cy="30" rx="13" ry="11" fill="var(--ear-fill)" stroke="var(--border)" stroke-width="2"/><ellipse cx="11.5" cy="32" rx="2.4" ry="1.5" fill="var(--pink)" opacity=".45"/><ellipse cx="28.5" cy="32" rx="2.4" ry="1.5" fill="var(--pink)" opacity=".45"/><circle cx="15" cy="29.5" r="2.1" fill="var(--eye-fill)"/><circle cx="25" cy="29.5" r="2.1" fill="var(--eye-fill)"/><circle cx="15.6" cy="28.8" r=".7" fill="#fff"/><circle cx="25.6" cy="28.8" r=".7" fill="#fff"/><path d="M18.2 33q1.8 2 3.6 0" fill="none" stroke="var(--border)" stroke-width="1.6" stroke-linecap="round"/><path d="M20 39l2.5 3.5h-5Z" fill="var(--carrot)"/><path d="M18.5 38.8q1.5-1.8 3 0" fill="none" stroke="var(--leaf)" stroke-width="1.8" stroke-linecap="round"/></svg><span><span class="brand-title">兔子帮助中心</span><span class="brand-caption">因幡帝 · 幸运白兔小铺</span></span></a><button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">菜单</button><nav class="site-nav" id="site-nav" aria-label="主导航"><a href="./index.html">首页</a><a href="./invite.html">邀请入群</a><a href="./new-group.html" aria-current="page">新群设置</a><a href="./quickstart.html">快速上手</a><a href="./settings.html">配置中心</a><a href="./personality.html">个性化</a><a href="./help.html">帮助中心</a><a href="./updates.html">更新公告</a><a href="./contact.html">联系反馈</a></nav><button class="theme-toggle" id="theme-toggle" type="button" aria-label="切换为夜间暖窝模式" title="切换为夜间暖窝模式"><svg class="theme-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg><svg class="theme-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A9 9 0 0 1 10 3.5 9 9 0 1 0 20.5 14Z"/></svg><span class="theme-toggle-text theme-label-dark">切换晴日</span><span class="theme-toggle-text theme-label-light">切换暖夜</span></button></div></header>
   <main id="main" class="setup-guide">
     <header class="page-head"><p class="eyebrow">新群配置清单</p><h1>兔子进群，接下来这样做。</h1><p class="lead">从提交申请到第一次正常使用，跟着下面的步骤完成设置。还没了解邀请方式，可以先看<a href="./invite.html">邀请入群</a>。</p><nav class="quick-links" aria-label="新群设置步骤"><a href="#review">等待审核</a><span aria-hidden="true">→</span><a href="#invite">邀请兔子</a><span aria-hidden="true">→</span><a href="#recharge">充萝卜</a><span aria-hidden="true">→</span><a href="#activate">开通套餐</a><span aria-hidden="true">→</span><a href="#features">开启功能</a><span aria-hidden="true">→</span><a href="#finish">服区与检查</a></nav></header>
 
@@ -46,7 +46,7 @@
           <ol><li>用对应的 App 扫描下方二维码；手机上可以点开原图，保存后在 App 内识别。</li><li>按页面提示支付或下单，填好 QQ 号，并保留订单或付款记录。</li><li>等待黑猫人工处理，一般半天内处理；超过半天未到账，可以带着记录联系黑猫核对。</li></ol>
           <figure class="recharge-poster"><a href="./assets/recharge-manual.png" aria-label="打开支付宝与微信手动充值图片原图"><img src="./assets/recharge-manual.png" width="398" height="200" alt="手动充值：左侧用支付宝扫一扫，右侧用微信识别黑猫天才杂货铺小程序码"></a></figure>
           <p class="small muted">手动充值通常先充到你备注的 QQ 号，成为个人萝卜。兔子入群后，再用 <code>.投喂 全部</code> 转到目标群；如果已经直接充到群，就跳过投喂。</p>
-          <details class="faq"><summary>支付宝领红包与海外下单入口</summary><div><div class="recharge-qr-grid">
+          <details class="faq" open><summary>支付宝领红包与海外下单入口</summary><div><div class="recharge-qr-grid">
             <figure class="recharge-qr"><a href="./assets/recharge-coupon.png" aria-label="打开支付宝领红包二维码原图"><img src="./assets/recharge-coupon.png" width="190" height="190" alt="申请表中的支付宝领红包二维码" loading="lazy"></a><figcaption><strong>支付宝领红包</strong><span>可先领红包，再下单</span></figcaption></figure>
             <figure class="recharge-qr"><a href="./assets/recharge-overseas.png" aria-label="打开淘宝海外下单二维码原图"><img src="./assets/recharge-overseas.png" width="145" height="145" alt="申请表中的淘宝海外下单二维码" loading="lazy"></a><figcaption><strong>淘宝海外下单</strong><span>外币下单可自动兑换</span></figcaption></figure>
           </div><p class="small muted">海外下单后请联系黑猫提醒处理。这里的入口均来自邀请申请表，实际商品和优惠以打开后的页面为准。</p></div></details>

@@ -8,10 +8,10 @@
     "heihei": "https://chat.xiaoheihe.cn/app/?bot_id=72178982"
   },
   "experience_groups": [
-    {"name": "①群", "server": "国际服", "number": "980210988"},
-    {"name": "②群", "server": "国际服", "number": "883262099"},
-    {"name": "③群", "server": "国际服", "number": "856456900"},
-    {"name": "④群（国服）", "server": "国服", "number": "1003600606"}
+    {"name": "①群", "server": "国际服", "number": "980210988", "join_url": "https://qm.qq.com/cgi-bin/qm/qr?k=NN53Bn8r_1YwMHR8Z6PaVwkh2dekWjTb&jump_from=webapi&authKey=YuNVOib1vs2pmgg+zjuoEI2uOMSoNzDiM6TtWnXJZ5Cx8XUiqfQhOpD+LGI/4CMl"},
+    {"name": "②群", "server": "国际服", "number": "883262099", "join_url": "https://qm.qq.com/cgi-bin/qm/qr?k=neD6yzlCLAW_RY00Ey64ZDDITTQqfQTF&jump_from=webapi&authKey=EBFYO4kfShf74DkHdboR/tkhl5l9XePF/iBuuEtCY+aAu3YXIzHEBObj/y9IAPEb"},
+    {"name": "③群", "server": "国际服", "number": "856456900", "join_url": "https://qm.qq.com/cgi-bin/qm/qr?k=Z1S1x84R4s__ze5bRaDp8BsRdATC6UYb&jump_from=webapi&authKey=SPy2zZdfi7102OC5tJ0xzFlTKAIV4qHA381KFGexKE5Xpv1tTGrf700PD/W0a7DW"},
+    {"name": "④群（国服）", "server": "国服", "number": "1003600606", "join_url": "https://qm.qq.com/cgi-bin/qm/qr?k=5krnYGYM7vCiXjXKILUPExK3JJsJzfh8&jump_from=webapi&authKey=naraab792PfMYhTpZbuXRuMZEyCy02BQNTefZIoLwgpw0on6xcSrnoV1BA/hJwev"}
   ],
   "video_collection": "https://space.bilibili.com/279539/lists/9522531?type=season",
   "videos": [

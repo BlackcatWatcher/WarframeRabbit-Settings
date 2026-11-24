@@ -1,17 +1,17 @@
 <!doctype html>
-<html lang="zh-CN" data-theme="dark">
+<html lang="zh-CN" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#1d1418">
+  <meta name="theme-color" content="#fff9f2">
   <link rel="icon" href="./icon.webp">
   <meta name="description" content="了解 QQ 官方、KOOK 和黑盒语音机器人的邀请方式，以及各平台的充值、投喂和新群设置流程。">
   <title>邀请入群 · 兔子帮助中心</title>
   <script>
     try {
-      if (localStorage.getItem("warframe-rabbit-settings-theme") === "light") {
-        document.documentElement.dataset.theme = "light";
-        document.querySelector('meta[name="theme-color"]').content = "#fff9f2";
+      if (localStorage.getItem("warframe-rabbit-settings-theme") === "dark") {
+        document.documentElement.dataset.theme = "dark";
+        document.querySelector('meta[name="theme-color"]').content = "#1d1418";
       }
     } catch {}
   </script>
@@ -19,7 +19,7 @@
   <script src="./site.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#main">跳转到正文</a><header class="site-header"><div class="header-inner"><a class="site-brand" href="./index.html"><svg viewBox="0 0 40 44" aria-hidden="true"><path d="M13 21C8 12 7 3 12 2c4-1 6 9 6 17Z" fill="var(--ear-fill)" stroke="var(--border)" stroke-width="2" stroke-linejoin="round"/><path d="M13.5 18C11 12 10.5 6 12.6 5.5c1.9-.5 3 5.5 3.2 11.5Z" fill="var(--ear-inner)"/><path d="M22 19c1-9 5-17 10-15 4 2-1 11-6 18Z" fill="var(--ear-fill)" stroke="var(--border)" stroke-width="2" stroke-linejoin="round"/><path d="M24 18c1-6 4-11.5 6-10.5 1.8.9-1 6.5-4.2 11.5Z" fill="var(--ear-inner)"/><ellipse cx="20" cy="30" rx="13" ry="11" fill="var(--ear-fill)" stroke="var(--border)" stroke-width="2"/><ellipse cx="11.5" cy="32" rx="2.4" ry="1.5" fill="var(--pink)" opacity=".45"/><ellipse cx="28.5" cy="32" rx="2.4" ry="1.5" fill="var(--pink)" opacity=".45"/><circle cx="15" cy="29.5" r="2.1" fill="var(--eye-fill)"/><circle cx="25" cy="29.5" r="2.1" fill="var(--eye-fill)"/><circle cx="15.6" cy="28.8" r=".7" fill="#fff"/><circle cx="25.6" cy="28.8" r=".7" fill="#fff"/><path d="M18.2 33q1.8 2 3.6 0" fill="none" stroke="var(--border)" stroke-width="1.6" stroke-linecap="round"/><path d="M20 39l2.5 3.5h-5Z" fill="var(--carrot)"/><path d="M18.5 38.8q1.5-1.8 3 0" fill="none" stroke="var(--leaf)" stroke-width="1.8" stroke-linecap="round"/></svg><span><span class="brand-title">兔子帮助中心</span><span class="brand-caption">因幡帝 · 幸运白兔小铺</span></span></a><button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">菜单</button><nav class="site-nav" id="site-nav" aria-label="主导航"><a href="./index.html">首页</a><a href="./invite.html">邀请入群</a><a href="./new-group.html">新群设置</a><a href="./quickstart.html">快速上手</a><a href="./settings.html">配置中心</a><a href="./personality.html">个性化</a><a href="./help.html" aria-current="page">帮助中心</a><a href="./updates.html">更新公告</a><a href="./contact.html">联系反馈</a></nav><button class="theme-toggle" id="theme-toggle" type="button" aria-label="切换为日间晴日模式" title="切换为日间晴日模式"><svg class="theme-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg><svg class="theme-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A9 9 0 0 1 10 3.5 9 9 0 1 0 20.5 14Z"/></svg><span class="theme-toggle-text theme-label-dark">切换晴日</span><span class="theme-toggle-text theme-label-light">切换暖夜</span></button></div></header>
+  <a class="skip-link" href="#main">跳转到正文</a><header class="site-header"><div class="header-inner"><a class="site-brand" href="./index.html"><svg viewBox="0 0 40 44" aria-hidden="true"><path d="M13 21C8 12 7 3 12 2c4-1 6 9 6 17Z" fill="var(--ear-fill)" stroke="var(--border)" stroke-width="2" stroke-linejoin="round"/><path d="M13.5 18C11 12 10.5 6 12.6 5.5c1.9-.5 3 5.5 3.2 11.5Z" fill="var(--ear-inner)"/><path d="M22 19c1-9 5-17 10-15 4 2-1 11-6 18Z" fill="var(--ear-fill)" stroke="var(--border)" stroke-width="2" stroke-linejoin="round"/><path d="M24 18c1-6 4-11.5 6-10.5 1.8.9-1 6.5-4.2 11.5Z" fill="var(--ear-inner)"/><ellipse cx="20" cy="30" rx="13" ry="11" fill="var(--ear-fill)" stroke="var(--border)" stroke-width="2"/><ellipse cx="11.5" cy="32" rx="2.4" ry="1.5" fill="var(--pink)" opacity=".45"/><ellipse cx="28.5" cy="32" rx="2.4" ry="1.5" fill="var(--pink)" opacity=".45"/><circle cx="15" cy="29.5" r="2.1" fill="var(--eye-fill)"/><circle cx="25" cy="29.5" r="2.1" fill="var(--eye-fill)"/><circle cx="15.6" cy="28.8" r=".7" fill="#fff"/><circle cx="25.6" cy="28.8" r=".7" fill="#fff"/><path d="M18.2 33q1.8 2 3.6 0" fill="none" stroke="var(--border)" stroke-width="1.6" stroke-linecap="round"/><path d="M20 39l2.5 3.5h-5Z" fill="var(--carrot)"/><path d="M18.5 38.8q1.5-1.8 3 0" fill="none" stroke="var(--leaf)" stroke-width="1.8" stroke-linecap="round"/></svg><span><span class="brand-title">兔子帮助中心</span><span class="brand-caption">因幡帝 · 幸运白兔小铺</span></span></a><button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">菜单</button><nav class="site-nav" id="site-nav" aria-label="主导航"><a href="./index.html">首页</a><a href="./invite.html">邀请入群</a><a href="./new-group.html">新群设置</a><a href="./quickstart.html">快速上手</a><a href="./settings.html">配置中心</a><a href="./personality.html">个性化</a><a href="./help.html" aria-current="page">帮助中心</a><a href="./updates.html">更新公告</a><a href="./contact.html">联系反馈</a></nav><button class="theme-toggle" id="theme-toggle" type="button" aria-label="切换为夜间暖窝模式" title="切换为夜间暖窝模式"><svg class="theme-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg><svg class="theme-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A9 9 0 0 1 10 3.5 9 9 0 1 0 20.5 14Z"/></svg><span class="theme-toggle-text theme-label-dark">切换晴日</span><span class="theme-toggle-text theme-label-light">切换暖夜</span></button></div></header>
   <main id="main">
     <header class="page-head"><p class="eyebrow">把兔子带回家</p><h1>帮助中心</h1><p class="lead">选择你的聊天平台，查看邀请和设置方法。</p></header>
     <nav class="tabs" aria-label="帮助内容"><a href="./help.html">指令大全</a><a href="./videos.html">视频教程</a><a href="./help-invite.html" aria-current="page">邀请入群</a></nav>
@@ -38,7 +38,7 @@
           </section>
           <section class="detail-section">
             <h3>第 2 步 · 设置官方 Q 群机器人</h3>
-            <p>你需要在“群管理-群机器人-WarframeRabbit-管理”里将机器人可获取的群聊消息范围设置为“获取群内全部消息”，否则机器人只能响应被 @ 的指令。然后在机器人权限设置中允许机器人主动在群内发言。如果需要群验证功能，也可以设为管理员。</p>
+            <p>你需要在 <code>群管理-群机器人-WarframeRabbit-管理</code> 里将机器人可获取的群聊消息范围设置为 <code>获取群内全部消息</code>，否则机器人只能响应被 @ 的指令。然后在机器人权限设置中 <code>允许机器人主动在群内发言</code>。如果需要群验证功能，也可以 <code>设为管理员</code>。</p>
           </section>
           <section class="detail-section"><h3>第 3 步 · 自动充值到个人，再投喂到群</h3>
     <p>由准备成为申请人的账号在目标群聊或频道发送下面的指令，创建充值订单。金额单位是元，下面以充值 10 元为例。</p>
@@ -104,7 +104,7 @@
         <article id="kook" class="panel" data-invitation-article aria-labelledby="kook-title">
           <p class="eyebrow">KOOK · 服务器邀请</p><h2 id="kook-title">邀请kook机器人</h2>
           <p class="lead">通过链接把兔子邀请到 KOOK 服务器，再完成个人充值、投喂和群设置。</p>
-          <section class="detail-section"><h3>第 1 步 · 点链接邀请兔子</h3><ol><li>打开下方的邀请链接，登录有目标服务器管理权限的 KOOK 账号。</li><li>选择要邀请兔子加入的服务器，按页面提示确认授权。</li><li>回到服务器的文字频道，确认兔子已经加入。后面的指令都在这个目标服务器的文字频道中发送。</li></ol><div class="actions"><button class="button" type="button" data-copy="https://www.kookapp.cn/app/oauth2/authorize?id=10014&amp;permissions=604929152&amp;client_id=HElZImbB2c-IOAlI&amp;redirect_uri=&amp;scope=bot">复制邀请链接</button><a href="https://www.kookapp.cn/app/oauth2/authorize?id=10014&amp;permissions=604929152&amp;client_id=HElZImbB2c-IOAlI&amp;redirect_uri=&amp;scope=bot" target="_blank" rel="noopener noreferrer">打开 KOOK 邀请页面 ↗</a></div></section>
+          <section class="detail-section"><h3>第 1 步 · 点链接邀请兔子</h3><ol><li>打开下方的邀请链接，登录有目标服务器管理权限的 KOOK 账号。</li><li>选择要邀请兔子加入的服务器，按页面提示确认授权。</li><li>回到服务器的文字频道，确认兔子已经加入。后面的指令都在这个目标服务器的文字频道中发送。</li></ol><div class="actions invitation-actions"><button class="button" type="button" data-copy="https://www.kookapp.cn/app/oauth2/authorize?id=10014&amp;permissions=604929152&amp;client_id=HElZImbB2c-IOAlI&amp;redirect_uri=&amp;scope=bot">复制邀请链接</button><a href="https://www.kookapp.cn/app/oauth2/authorize?id=10014&amp;permissions=604929152&amp;client_id=HElZImbB2c-IOAlI&amp;redirect_uri=&amp;scope=bot" target="_blank" rel="noopener noreferrer">打开 KOOK 邀请页面 ↗</a></div></section>
           <section class="detail-section"><h3>第 2 步 · 自动充值到个人</h3>
     <p>由准备成为申请人的账号在目标服务器的文字频道发送下面的指令，创建充值订单。金额单位是元，下面以充值 10 元为例。</p>
     <div class="invitation-command-grid">
@@ -174,7 +174,7 @@
         <article id="heihei" class="panel" data-invitation-article aria-labelledby="heihei-title">
           <p class="eyebrow">黑盒语音 · 房间邀请</p><h2 id="heihei-title">邀请黑盒语音机器人</h2>
           <p class="lead">通过黑盒语音的机器人邀请入口，把兔子添加到你的房间。</p>
-          <section class="detail-section"><h3>第 1 步 · 邀请黑盒语音机器人</h3><p>复制下方链接，登录黑盒语音，按邀请页面提示选择目标房间并完成添加。</p><div class="actions"><button class="button" type="button" data-copy="https://chat.xiaoheihe.cn/app/?bot_id=72178982">复制邀请链接</button></div></section>
+          <section class="detail-section"><h3>第 1 步 · 邀请黑盒语音机器人</h3><p>打开下方邀请链接，登录黑盒语音，按邀请页面提示选择目标房间并完成添加。</p><div class="actions invitation-actions"><button class="button" type="button" data-copy="https://chat.xiaoheihe.cn/app/?bot_id=72178982">复制邀请链接</button><a href="https://chat.xiaoheihe.cn/app/?bot_id=72178982" target="_blank" rel="noopener noreferrer">打开黑盒语音邀请页面 ↗</a></div></section>
           <section class="detail-section"><h3>第 2 步 · 自动充值到个人</h3>
     <p>由准备成为申请人的账号在目标房间的文字频道发送下面的指令，创建充值订单。金额单位是元，下面以充值 10 元为例。</p>
     <div class="invitation-command-grid">

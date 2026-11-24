@@ -827,3 +827,5 @@ body {
 .wr-opposed-track-success{--ui-opposed-track:var(--wr-success)}
 .wr-opposed-track-subtitle{--ui-opposed-track:var(--wr-subtitle)}
 .wr-opposed-track-info{--ui-opposed-track:var(--wr-info)}
+
+html { background: #fff; }
