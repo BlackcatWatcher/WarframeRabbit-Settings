@@ -1,6 +1,12 @@
 {
   "invite_group": "883262099",
   "contact_qq": "838652229",
+  "invite_links": {
+    "qq_channel": "https://qun.qq.com/qunpro/robot/share?robot_appid=101995982",
+    "qq_group": "https://qun.qq.com/qunpro/robot/qunshare?robot_appid=101995982&robot_uin=2854209516",
+    "kook": "https://www.kookapp.cn/app/oauth2/authorize?id=10014&permissions=604929152&client_id=HElZImbB2c-IOAlI&redirect_uri=&scope=bot",
+    "heihei": "https://chat.xiaoheihe.cn/app/?bot_id=72178982"
+  },
   "experience_groups": [
     {"name": "①群", "server": "国际服", "number": "980210988"},
     {"name": "②群", "server": "国际服", "number": "883262099"},
