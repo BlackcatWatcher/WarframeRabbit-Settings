@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#fff9f2">
   <link rel="icon" href="./icon.webp">
-  <meta name="description" content="Warframe Rabbit 个性化编辑器使用教程，包含主题、字体、背景角色、自定义 HTML、i18n 文案和个性化包导出。">
+  <meta name="description" content="Warframe Rabbit 个性化编辑器四步使用教程与注意事项，包含 100 套 HTML 样式、角色抠图透明 PNG 要求、背景图、尺寸透明度、配色与个性化包导出。">
   <title>个性化编辑器 · 兔子帮助中心</title>
   <script>
     try {
@@ -26,102 +26,116 @@
     <section class="panel personality-guide-intro" aria-labelledby="guide-title">
       <div>
         <h2 id="guide-title">Warframe Rabbit 个性化编辑器使用教程</h2>
-        <p>在网页版调整外观、预览效果和导出个性化包。下方教程介绍独立编辑器的使用方法。</p>
+        <p>网页版与本地便携版均采用 4 步向导：填包信息与选样式 → 传角色和背景 → 调尺寸透明度 → 调配色。下方整理了详细操作步骤与常见避坑提醒。</p>
       </div>
       <a class="button" href="./personality.html">打开网页版编辑器</a>
     </section>
     <div class="personality-guide-layout">
       <nav class="personality-guide-index" aria-label="教程目录">
         <strong>目录</strong>
-        <a href="#guide-open">打开编辑器</a>
-        <a href="#guide-package">新建或打开个性化</a>
-        <a href="#guide-appearance">可以修改什么</a>
-        <a href="#guide-html">自定义 HTML</a>
-        <a href="#guide-i18n">修改 i18n 文案</a>
-        <a href="#guide-export">导出个性化包</a>
+        <a href="#guide-open">开始使用</a>
+        <a href="#guide-package">第 1 步：包信息与样式</a>
+        <a href="#guide-assets">第 2 步：角色与背景图</a>
+        <a href="#guide-metrics">第 3 步：尺寸与透明度</a>
+        <a href="#guide-colors">第 4 步：配色与预览</a>
+        <a href="#guide-advanced">自定义 HTML 与文案</a>
+        <a href="#guide-export">导出与交付</a>
         <a href="#guide-faq">常见问题</a>
       </nav>
       <div class="personality-guide-chapters">
         <section id="guide-open" class="personality-guide-chapter" tabindex="-1">
-          <h3>一、打开编辑器</h3>
+          <h3>一、开始使用（网页版与便携版）</h3>
           <ol>
-            <li>双击“<code>WarframeRabbit-PersonalityEditor.exe</code>”。</li>
-            <li>程序会自动打开浏览器页面；所有编辑和预览都在本机完成。</li>
-            <li>使用结束后，关闭程序窗口和浏览器页面即可。</li>
+            <li><strong>帮助中心网页版：</strong>打开网页即可直接编辑、实时预览并导出 <code>.wrpersonality</code>，无需安装软件，适合绝大多数群定制。</li>
+            <li><strong>本地便携版：</strong>解压便携包后双击 <code>WarframeRabbit-PersonalityEditor.exe</code>（或运行启动脚本），浏览器会自动打开本地编辑页；额外支持自定义 HTML 模板编辑、本地自定义字体目录与真实 Chrome 截图渲染。</li>
+            <li><strong>新建或继续修改：</strong>页面默认自动载入一份“新建默认方案”；如果想在旧方案上继续微调，点击右上角“打开个性化包”载入已有 <code>.wrpersonality</code> 文件即可。</li>
           </ol>
+          <p class="personality-guide-note"><strong>提醒：</strong>所有改动在点击“导出个性化包”前都只保存在当前浏览器页面中，刷新或关闭页面会丢失未导出内容，调整满意后请及时导出备份。</p>
         </section>
+
         <section id="guide-package" class="personality-guide-chapter" tabindex="-1">
-          <h3>二、新建或打开个性化</h3>
-          <p><strong>新建：</strong><br>点击右上角“新建默认方案”，从默认样式开始修改。</p>
-          <p><strong>继续修改已有文件：</strong><br>点击“打开个性化包”，选择扩展名为 <code>.wrpersonality</code> 的文件。</p>
-          <p>包信息需要填写：</p>
+          <h3>二、第 1 步：填写包信息</h3>
+          <p>本步只需设置三项必要信息；新建方案使用默认基础语言、布局和备注，打开已有包时保留包内值。导入后按包内设置生效：</p>
           <ul>
-            <li><strong>目标 QQ 群号：</strong>填写纯数字群号，其他平台需要完整UID，输入 <code>.状态</code> 可见。</li>
-            <li><strong>个性化备注：</strong>用于说明这套样式，例如“粉色简约版”“深色科幻版”。</li>
+            <li><strong>目标群号 / 群 UID（必填）：</strong>QQ 群直接填写 5–20 位纯数字群号（首位不能为 0，系统自动补 <code>1g</code>）；KOOK、黑盒语音、QQ 官方等其他平台必须填写完整群 UID（例如 <code>3g123456</code>），在群内发送 <code>.状态</code> 即可查看。<strong>请仔细核对群号</strong>，填错会导致无法正确绑定目标群。</li>
+            <li><strong>字体：</strong>选择目标显示的字体名称。导出包<strong>只记录字体名、不打包字体文件</strong>；网页版仅按需下载所选字体的预览子集，若预览旁提示个别生僻字使用默认字体补字属于正常现象，最终效果取决于机器人所在环境是否安装完整字体。</li>
+            <li><strong>HTML 样式：</strong>内置 100 套样式，占用一整行展示：
+              <ul>
+                <li>点击两侧左右箭头，或直接按键盘 <code>←</code> / <code>→</code> 方向键逐套切换；</li>
+                <li>拖动下方醒目滚动条，可快速翻动并实时定位到任意样式；</li>
+                <li>点击最下方的向下箭头展开全部样式列表，支持按名称或编号搜索，点击目标样式即可自动收起并选中。</li>
+              </ul>
+            </li>
+          </ul>
+          <p class="personality-guide-note"><strong>提示：</strong>切换内置样式时，尚未手动改动过的配色与透明度会自动跟随新样式更新，你手动调整过的参数则会保留。</p>
+        </section>
+
+        <section id="guide-assets" class="personality-guide-chapter" tabindex="-1">
+          <h3>三、第 2 步：上传角色和背景图</h3>
+          <p>点击上传区域或直接把图片拖拽进卡片，即可分别替换角色图（右下角立绘/图案）和背景图；不上传则沿用当前包内默认图片，随时可点“恢复原图”撤销替换。</p>
+          <p class="personality-guide-note"><strong>准备图片的重要注意事项：</strong></p>
+          <ul>
+            <li><strong>角色图务必先抠图透明：</strong>角色图叠加在卡片右下角，<strong>一定要先去除背景并保存为透明底 PNG</strong>；如果直接上传带白底或实色背景的图片，画面右下角会出现一大块遮挡正文的方块。</li>
+            <li><strong>裁剪掉角色图多余留白：</strong>四周留白过宽会让角色显得偏小、位置难对准，建议抠图后紧贴角色主体裁剪，朝向左侧或居中的立绘通常更贴合右下角布局。</li>
+            <li><strong>背景图注意清晰度与构图：</strong>优先选择对比度温和、画面不杂乱的高清图，避免高饱和碎纹干扰正文阅读。</li>
+            <li><strong>格式与体积限制：</strong>只接受<strong>标准 PNG 或 JPEG</strong>（不支持 WebP、GIF，也<strong>不能直接把其他格式手动改后缀为 <code>.png</code></strong>，校验会拒绝）。单张背景最大 10 MiB、角色最大 8 MiB，单边不超过 8192 px，总像素不超过 16,777,216，整个压缩包不超过 20 MiB。</li>
           </ul>
         </section>
-        <section id="guide-appearance" class="personality-guide-chapter" tabindex="-1">
-          <h3>三、可以修改什么</h3>
-          <p>在“外观与素材”页面可以修改：</p>
+
+        <section id="guide-metrics" class="personality-guide-chapter" tabindex="-1">
+          <h3>四、第 3 步：尺寸与透明度</h3>
+          <p>本步每项参数都提供“滑块 + 数值输入框”双控制：<strong>滑块仅作为常用参考范围</strong>，如果希望微调到更极限的数值，可直接在输入框填写后端完整允许范围内的整数：</p>
           <ul>
-            <li>内置 HTML 样式和长短图布局。</li>
-            <li>字体、字号和图片最大宽度。</li>
-            <li>背景图、右侧角色图案及其大小、偏移和透明度。</li>
-            <li>背景、边框、主题、正文、数值、提示、警告等颜色。</li>
-            <li>背景和内容区域的透明度。</li>
-            <li>毛玻璃效果。</li>
-            <li>自定义 HTML 模板。</li>
+            <li><strong>字号：</strong>滑块参考 <code>60–150</code>（对应 <code>15px–37.5px</code>），输入框支持 <code>30–150</code>；实际字号按数值的 1/4 计算，最低 <code>14px</code>，默认 95。字号过大时请切换右侧“市场”“紫卡分析”等长表预览确认不会挤压换行。</li>
+            <li><strong>相对宽度：</strong>滑块参考 <code>700–1000</code>，输入框支持 <code>600–1200</code>，以 <code>800</code> 为基准。例如填 <code>1000</code> 表示所有功能整体加宽 200（默认 1200 的页面变为 1400）。</li>
+            <li><strong>角色尺寸与偏移：</strong>尺寸滑块 <code>100–280</code>（输入 <code>80–360</code>）；水平/垂直偏移滑块 <code>-200–200</code>（输入 <code>-400–400</code>），正数分别向右、向下移动，负数向左、向上移动。</li>
+            <li><strong>背景图不透明度（<code>0–100</code>）：</strong><code>0</code> 为隐藏背景图，调高让背景图更清晰。如果背景较花导致文字费眼，建议控制在 <code>20–55</code> 并配合内容底色或毛玻璃使用。</li>
+            <li><strong>内容底色不透明度 / 毛玻璃强度（<code>0–100</code>）：</strong>与“启用主内容层毛玻璃”开关互斥——关闭毛玻璃时控制正文区底色不透明度；开启毛玻璃后改为控制玻璃模糊强度，正文与角色保持清晰。</li>
+            <li><strong>角色不透明度：</strong>滑块参考 <code>0–100</code>，输入框支持 <code>0–200</code>。<code>100</code> 为正常不透明；当角色图案与正文文字重叠时，系统会自动把角色透明度减半避免挡字，若觉得太淡，可在输入框填到 <code>101–200</code> 抵消自动减半效果。</li>
           </ul>
-          <p>替换图片时支持 <strong>PNG 和 JPEG</strong>。建议背景图尺寸足够大，右侧角色图使用透明背景 PNG。</p>
-          <p class="personality-guide-note">页面右侧提供五套测试内容：短状态、数据表格、五列长文本、长列表和全英文。修改后点击“构建并生成预览”，应当至少检查短图、长图和全英文三种情况。</p>
         </section>
-        <section id="guide-html" class="personality-guide-chapter" tabindex="-1">
-          <h3>四、自定义 HTML</h3>
-          <p>在“HTML 样式”中选择“自定义 HTML”，编辑器会自动填入一份完整安全模板。</p>
-          <p>可以修改模板中的 HTML 和 CSS，但不要加入：</p>
+
+        <section id="guide-colors" class="personality-guide-chapter" tabindex="-1">
+          <h3>五、第 4 步：配色与多场景预览</h3>
+          <p>配色分为“框架与主题色”（背景、外框、边框文字、主题色）与“正文与状态文字色”（基础、数值、通知、成功、信息、警告、备注），支持取色器点击或直接粘贴 6 位 HEX 色值（如 <code>#159D2B</code>）。</p>
           <ul>
-            <li>JavaScript 或 <code>script</code> 标签。</li>
-            <li>表单、<code>iframe</code>、外部网页和远程资源。</li>
-            <li>本机绝对路径。</li>
-            <li>会遮挡或移除 <code>#rabbit-card</code> 主卡片的代码。</li>
+            <li>想重置为当前 HTML 样式的官方推荐配色和透明度，点击右上角“恢复主题建议值”。</li>
+            <li><strong>导出前务必多切几个右侧预览场景：</strong>建议至少检查“仲裁”（短卡片）、“市场 / 紫卡分析”（多列数值与状态色）和“全部组件”（覆盖所有语义颜色），确认深浅背景下的所有文字对比度清晰、没有被角色挡住重要信息。</li>
           </ul>
-          <p class="personality-guide-note">如果模板改坏，可以点击“恢复安全基础模板”。恢复操作会覆盖当前自定义 HTML，请先保存需要保留的内容。</p>
+          <p class="personality-guide-note">参数停止改动约 180 毫秒后右侧预览会自动刷新，也可随时点击预览按钮手动立即刷新。</p>
         </section>
-        <section id="guide-i18n" class="personality-guide-chapter" tabindex="-1">
-          <h3>五、修改 i18n 文案</h3>
-          <ol>
-            <li>切换到“i18n 文案”页面。</li>
-            <li>默认提供国际服文案；需要国服时点击“+ 国服”。</li>
-            <li>需要其他语言时填写 locale，例如 <code>ja</code> 或 <code>zh-Hant</code>，再点击“添加其他语言”。</li>
-            <li>“分类字段”适合日常修改；每个分类可以展开后逐项编辑。</li>
-            <li>“格式化 JSON”用于整体检查和复制，不熟悉 JSON 时不要直接大批量改结构。</li>
-            <li>“导出 raw i18n”可以单独备份当前文案；“导入 raw i18n”可以恢复或迁移文案。</li>
-          </ol>
-          <p class="personality-guide-note"><strong>注意：</strong>不要修改字段名称，只修改字段对应的文字。删除逗号、引号或括号可能导致 JSON 无法导入。</p>
+
+        <section id="guide-advanced" class="personality-guide-chapter" tabindex="-1">
+          <h3>六、进阶：自定义 HTML 与 i18n 文案（可选）</h3>
+          <p><strong>自定义 HTML 主题（便携版）：</strong>点击页面顶部“i18n 文案”右侧的“自定义 HTML 主题”标签页并启用，即可载入完整组件标准模板、上传组件装饰素材并进行代码编辑；需要恢复内置样式时可随时点击“切回内置样式”或在样式条直接点选任意内置样式。不要加入 JavaScript / <code>&lt;script&gt;</code>、表单、<code>&lt;iframe&gt;</code>、远程 URL、本机绝对路径或隐藏 <code>#rabbit-card</code> 的代码；改坏时可点“恢复安全基础模板”。网页版不支持新建或修改自定义 HTML，但导入已有自定义包时会原样保留其模板内容。</p>
+          <p><strong>i18n 文案：</strong>切换到顶部“i18n 文案（可选）”标签可修改页脚提示 <code>FooterText</code>（最多 60 字且不能换行）及各功能开头语；正文和表头由功能自身维护。批量编辑时请只改文字值，不要修改字段名或破坏 JSON 格式。</p>
         </section>
+
         <section id="guide-export" class="personality-guide-chapter" tabindex="-1">
-          <h3>六、导出个性化包</h3>
+          <h3>七、导出个性化包与交付</h3>
           <ol>
-            <li>先生成预览并确认没有明显错位、文字溢出或颜色看不清。</li>
-            <li>点击右上角“导出个性化包”。</li>
-            <li>浏览器会下载“<code>群号.wrpersonality</code>”。</li>
-            <li>将这个文件交给负责导入的管理员即可。</li>
+            <li>确认第 1 步已填入正确的目标群号 / 群 UID，且右侧预览清晰无异常。</li>
+            <li>点击第 4 步底部的“完成并导出个性化包”或页面右上角“导出个性化包”。</li>
+            <li>浏览器会下载 <code>群号.wrpersonality</code> 文件（已完整打包配置、i18n 文案、背景图和角色图，<strong>无需再单独发送原图</strong>）。</li>
+            <li>把该文件发给负责导入的机器人管理员；管理员导入后会自动绑定目标群并发送启用命令。</li>
           </ol>
-          <p class="personality-guide-note"><code>.wrpersonality</code> 已经包含配置、i18n 文案、背景图和角色图，不需要再单独发送这些素材。</p>
         </section>
+
         <section id="guide-faq" class="personality-guide-chapter" tabindex="-1">
-          <h3>七、常见问题</h3>
+          <h3>八、常见问题</h3>
           <dl class="personality-guide-faq">
-            <dt>字体下拉框没有想要的字体：</dt>
-            <dd>把字体文件放入便携包的 <code>WRData\font</code> 后重新启动编辑器。支持 ttf、otf、ttc、woff、woff2。</dd>
-            <dt>预览提示模板或图片无效：</dt>
-            <dd>先恢复安全基础模板；图片则重新保存为标准 PNG 或 JPEG 后再上传。</dd>
-            <dt>右侧图案挡住文字：</dt>
-            <dd>降低角色尺寸或透明度，调整水平、垂直偏移，并检查长列表预览。</dd>
-            <dt>导出按钮不可用：</dt>
-            <dd>等待默认方案载入完成，或重新打开一个有效的 <code>.wrpersonality</code> 文件。</dd>
+            <dt>上传角色图后右下角有一块白色/实色底框：</dt>
+            <dd>角色图没有做透明背景处理。请先用抠图工具去掉背景，导出为真正的透明底 PNG 后再回到第 2 步重新上传。</dd>
+            <dt>上传图片提示“格式与扩展名不一致”或无效：</dt>
+            <dd>不能直接重命名 WebP、GIF 等图片后缀。请用画图、Photoshop 或格式转换工具重新导出为标准 PNG 或 JPEG。</dd>
+            <dt>角色图挡住正文，或者角色看起来很淡：</dt>
+            <dd>挡字时请在第 3 步调小“角色尺寸”并微调水平/垂直偏移；如果角色与正文重叠触发了防遮挡自动变淡，可将“角色不透明度”输入框调高到 <code>120–200</code>。</dd>
+            <dt>背景图加上去以后字看不清：</dt>
+            <dd>在第 3 步降低“背景图不透明度”，并提高“内容底色不透明度”或开启“毛玻璃”；同时在第 4 步调整背景色与文字色对比度。</dd>
+            <dt>网页版预览提示部分文字使用默认字体补字，或便携版缺少想要的字体：</dt>
+            <dd>网页版只下载精简预览子集，出现补字提示属正常现象，导出包仍会保存所选字体名；便携版可将 <code>.ttf/.otf/.ttc/.woff/.woff2</code> 字体放入 <code>font</code> 或 <code>WRData\font</code> 目录后重启编辑器。</dd>
             <dt>导出后还想继续修改：</dt>
-            <dd>重新打开刚导出的 <code>.wrpersonality</code> 文件即可继续编辑。</dd>
+            <dd>点击右上角“打开个性化包”重新载入刚导出的 <code>.wrpersonality</code> 即可继续编辑。</dd>
           </dl>
         </section>
       </div>

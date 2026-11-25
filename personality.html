@@ -36,78 +36,367 @@
   <div class="statusbar"><span class="status-dot"></span><span id="status" role="status" aria-live="polite">正在加载编辑器</span><code id="digest">-</code></div>
 
   <section class="delivery-guide" aria-label="个性化包交付流程">
-    <strong>怎么给用户用</strong>
-    <span id="delivery-guide-text">填写目标群号或群 UID 并导出即可。纯数字默认使用 QQ，其他平台可填写 3g123456 等完整 UID。管理员导入后会自动绑定该群并发送启用命令。</span>
+    <strong>4 步完成定制</strong>
+    <span id="delivery-guide-text">按步骤填好群号、选字体与样式 → 传角色和背景 → 调尺寸透明度 → 调配色，最后导出 <code>.wrpersonality</code> 交给管理员即可（纯数字默认 QQ 群，其他平台填 3g123456 等完整 UID）。</span>
   </section>
 
   <nav class="workspace-tabs" aria-label="编辑区域">
-    <button type="button" class="selected" data-editor-tab="appearance" aria-selected="true">外观与素材</button>
-    <button type="button" data-editor-tab="i18n" aria-selected="false">i18n 文案</button>
+    <button type="button" class="selected" data-editor-tab="appearance" aria-selected="true">外观定制（4 步向导）</button>
+    <button type="button" data-editor-tab="i18n" aria-selected="false">i18n 文案（可选）</button>
+    <button id="custom-html-tab" type="button" data-editor-tab="custom-html" aria-selected="false" hidden>自定义 HTML 主题</button>
   </nav>
 
   <main id="main" class="workspace">
     <form id="editor-form" class="editor-column" autocomplete="off">
-      <section class="panel" data-editor-view="appearance">
-        <div class="panel-heading"><div><span>01</span><h2>包信息</h2></div><small>外观与主题配置</small></div>
-        <div class="form-grid">
-          <label><span>目标群号 / 群 UID</span><input id="id" required pattern="(?:[1-9][0-9]*g)?[1-9][0-9]{4,19}" maxlength="160" placeholder="123456 或 3g123456"><small class="hint">纯数字默认添加 1g；也可填写其他平台前缀，例如 3g123456。</small></label>
-          <label><span>个性化备注</span><input id="name" required maxlength="64"><small class="hint">用于向管理员和其他人说明这套个性化，例如“粉色简约版”。</small></label>
-          <label><span>基础语言</span><select id="base_language"><option>国际服</option><option>国服</option><option>英文</option></select></label>
-          <label><span>HTML 样式</span><select id="style"><option value="rabbit-default">默认样式</option><option value="soft-card">柔光卡片</option><option value="rabbit-classic">兔子经典</option><option value="rabbit-compact">克制紧凑</option><option value="orbiter-console">轨道终端</option><option value="frosted-grid">冷雾晶格</option><option value="clean-report">清晰报告</option><option value="midnight-lotus">午夜莲华</option><option value="sakura-ink">樱墨和纸</option><option value="swiss-bulletin">瑞士公报</option><option value="mission-timetable">航站时刻表</option><option value="field-guide">博物图鉴</option><option value="comic-dispatch">漫画快报</option><option value="concrete-monolith">混凝土碑刻</option><option value="pixel-arcade">像素街机</option><option value="psychedelic-wave">迷幻波浪</option><option value="cyanotype-draft">蓝晒图纸</option><option value="cyberpunk">赛博朋克</option><option value="future-electronic">未来电子</option><option value="metal-industrial">金属工业</option><option value="hacker-terminal">黑客界面</option><option value="holographic">全息投影</option><option value="space-capsule">太空舱界面</option><option value="clear-glass">清澈玻璃</option><option value="vaporwave">蒸汽波</option><option value="acid-design">酸性设计</option><option value="military-tactical">军事战术</option><option value="dark-luxury">暗黑奢华</option><option value="biomorphic">生物形态</option><option value="glitch-art">故障艺术</option><option value="clay-morphism">黏土拟态</option><option value="zen-forest">木系森林·东方禅意</option><option value="candy-macaron">糖果马卡龙</option><option value="peach-girlish">少女心</option><option value="morandi-soft">莫兰迪温柔</option><option value="dream-bubbles">梦幻泡泡</option><option value="romantic-glow">恋爱氛围</option><option value="carrot-zine">桃气萝卜手账</option><option value="eientei-moon">永远亭竹月物语</option><option value="lucky-arcade">幸运兔霓彩街机</option><option value="rabbit-mochi">白兔茶屋麻糬</option></select></label>
-          <label><span>布局</span><select id="layout"><option value="auto">自动</option><option value="short">短图</option><option value="long">长图</option></select></label>
-          <label><span>字体</span><select id="font"></select><small class="hint" id="font-hint">正在读取字体列表</small></label>
-          <label><span>背景文件</span><input id="background_file" readonly></label>
-          <label><span>角色文件</span><input id="avatar_file" readonly></label>
+      <!-- 按默认保留、无需用户手动填写的包字段（打开已有包时自动保留原值） -->
+      <div class="hidden-defaults" hidden>
+        <input id="name" type="hidden" value="我的个性化" maxlength="64">
+        <input id="base_language" type="hidden" value="国际服">
+        <input id="layout" type="hidden" value="auto">
+        <input id="background_file" type="hidden" value="bg.png">
+        <input id="avatar_file" type="hidden" value="avatar.png">
+      </div>
+
+      <nav class="step-nav" data-editor-view="appearance" aria-label="定制步骤">
+        <button type="button" class="step-tab selected" data-step-target="1" aria-current="step">
+          <span class="step-index">1</span>
+          <span class="step-meta"><strong>填写包信息</strong><small id="step-summary-1">群号 · 字体 · 样式</small></span>
+        </button>
+        <button type="button" class="step-tab" data-step-target="2">
+          <span class="step-index">2</span>
+          <span class="step-meta"><strong>角色与背景</strong><small id="step-summary-2">沿用包内素材</small></span>
+        </button>
+        <button type="button" class="step-tab" data-step-target="3">
+          <span class="step-index">3</span>
+          <span class="step-meta"><strong>尺寸与透明度</strong><small id="step-summary-3">滑块与数值微调</small></span>
+        </button>
+        <button type="button" class="step-tab" data-step-target="4">
+          <span class="step-index">4</span>
+          <span class="step-meta"><strong>配色</strong><small id="step-summary-4">框架与文字色彩</small></span>
+        </button>
+      </nav>
+
+      <!-- 第 1 步：填写包信息 -->
+      <section class="panel step-panel" data-editor-view="appearance" data-appearance-step="1">
+        <div class="panel-heading">
+          <div><span>STEP 01</span><h2>填写包信息</h2></div>
+          <small>新方案使用默认语言和布局；已有包保留包内值</small>
+        </div>
+
+        <div class="form-grid step1-top-grid">
+          <label>
+            <span>目标群号 / 群 UID <em class="required-mark" aria-hidden="true">*</em></span>
+            <input id="id" required pattern="(?:[1-9][0-9]*g)?[1-9][0-9]{4,19}" maxlength="160" placeholder="例如 123456 或 3g123456">
+            <small class="hint">纯数字默认 QQ 群（自动补 1g）；其他平台填完整 UID，例如 3g123456。</small>
+          </label>
+          <label>
+            <span>字体</span>
+            <select id="font"></select>
+            <small class="hint" id="font-hint">正在读取字体列表</small>
+          </label>
+        </div>
+
+        <div class="style-field">
+          <div class="style-field-header">
+            <div class="style-field-title">
+              <label for="style-scrollbar">HTML 样式</label>
+              <span id="style-current-badge" class="style-current-badge">1 / 100 · 默认样式</span>
+            </div>
+            <span class="style-key-hint">点击箭头、按键盘 <kbd>←</kbd> <kbd>→</kbd> 或拖动滚动条切换</span>
+          </div>
+
+          <select id="style" class="visually-hidden" tabindex="-1" aria-hidden="true"><option value="rabbit-default">默认样式</option><option value="soft-card">柔光卡片</option><option value="rabbit-classic">兔子经典</option><option value="rabbit-compact">克制紧凑</option><option value="orbiter-console">轨道终端</option><option value="frosted-grid">冷雾晶格</option><option value="clean-report">清晰报告</option><option value="midnight-lotus">午夜莲华</option><option value="sakura-ink">樱墨和纸</option><option value="swiss-bulletin">瑞士公报</option><option value="mission-timetable">航站时刻表</option><option value="field-guide">博物图鉴</option><option value="comic-dispatch">漫画快报</option><option value="concrete-monolith">混凝土碑刻</option><option value="pixel-arcade">像素街机</option><option value="psychedelic-wave">迷幻波浪</option><option value="cyanotype-draft">蓝晒图纸</option><option value="cyberpunk">赛博朋克</option><option value="future-electronic">未来电子</option><option value="metal-industrial">金属工业</option><option value="hacker-terminal">黑客界面</option><option value="holographic">全息投影</option><option value="space-capsule">太空舱界面</option><option value="clear-glass">清澈玻璃</option><option value="vaporwave">蒸汽波</option><option value="acid-design">酸性设计</option><option value="military-tactical">军事战术</option><option value="dark-luxury">暗黑奢华</option><option value="biomorphic">生物形态</option><option value="glitch-art">故障艺术</option><option value="clay-morphism">黏土拟态</option><option value="zen-forest">木系森林·东方禅意</option><option value="candy-macaron">糖果马卡龙</option><option value="peach-girlish">少女心</option><option value="morandi-soft">莫兰迪温柔</option><option value="dream-bubbles">梦幻泡泡</option><option value="romantic-glow">恋爱氛围</option><option value="carrot-zine">桃气萝卜手账</option><option value="eientei-moon">永远亭竹月物语</option><option value="lucky-arcade">幸运兔霓彩街机</option><option value="rabbit-mochi">白兔茶屋麻糬</option><option value="rabbit-default-new">默认样式（新）</option><option value="soft-card-new">柔光卡片（新）</option><option value="rabbit-classic-new">兔子经典（新）</option><option value="rabbit-compact-new">克制紧凑（新）</option><option value="orbiter-console-new">轨道终端（新）</option><option value="frosted-grid-new">冷雾晶格（新）</option><option value="clean-report-new">清晰报告（新）</option><option value="midnight-lotus-new">午夜莲华（新）</option><option value="sakura-ink-new">樱墨和纸（新）</option><option value="swiss-bulletin-new">瑞士公报（新）</option><option value="mission-timetable-new">航站时刻表（新）</option><option value="field-guide-new">博物图鉴（新）</option><option value="comic-dispatch-new">漫画快报（新）</option><option value="concrete-monolith-new">混凝土碑刻（新）</option><option value="pixel-arcade-new">像素街机（新）</option><option value="psychedelic-wave-new">迷幻波浪（新）</option><option value="cyanotype-draft-new">蓝晒图纸（新）</option><option value="cyberpunk-new">赛博朋克（新）</option><option value="future-electronic-new">未来电子（新）</option><option value="metal-industrial-new">金属工业（新）</option><option value="hacker-terminal-new">黑客界面（新）</option><option value="holographic-new">全息投影（新）</option><option value="space-capsule-new">太空舱界面（新）</option><option value="clear-glass-new">清澈玻璃（新）</option><option value="vaporwave-new">蒸汽波（新）</option><option value="acid-design-new">酸性设计（新）</option><option value="military-tactical-new">军事战术（新）</option><option value="dark-luxury-new">暗黑奢华（新）</option><option value="biomorphic-new">生物形态（新）</option><option value="glitch-art-new">故障艺术（新）</option><option value="clay-morphism-new">黏土拟态（新）</option><option value="zen-forest-new">木系森林·东方禅意（新）</option><option value="candy-macaron-new">糖果马卡龙（新）</option><option value="peach-girlish-new">少女心（新）</option><option value="morandi-soft-new">莫兰迪温柔（新）</option><option value="dream-bubbles-new">梦幻泡泡（新）</option><option value="romantic-glow-new">恋爱氛围（新）</option><option value="carrot-zine-new">桃气萝卜手账（新）</option><option value="eientei-moon-new">永远亭竹月物语（新）</option><option value="lucky-arcade-new">幸运兔霓彩街机（新）</option><option value="rabbit-mochi-new">白兔茶屋麻糬（新）</option><option value="titanium-forge">钛金锻造</option><option value="brass-steampunk">蒸汽黄铜</option><option value="hazard-foundry">熔炉重工</option><option value="carbon-cockpit">碳纤超跑</option><option value="retro-cassette">磁带随身听</option><option value="mech-keycap">客制键帽</option><option value="nixie-valve">辉光电子管</option><option value="arcade-pinball">弹珠灯箱</option><option value="orokin-sanctum">奥罗金圣殿</option><option value="blue-porcelain">青花瓷韵</option><option value="crimson-lacquer">朱漆莳绘</option><option value="stained-cathedral">彩绘花窗</option><option value="vintage-leather">复古皮具</option><option value="casino-royale">皇家筹码</option><option value="plastic-brick">积木乐园</option><option value="papercraft-origami">立体折纸</option><option value="emerald-jade">翡翠琅玕</option><option value="abyssal-reef">深海荧光</option></select>
+
+          <div id="style-picker" class="style-picker">
+            <div class="style-strip-shell">
+              <button id="style-prev" type="button" class="style-nav-btn" aria-label="上一个 HTML 样式" title="上一个样式 (←)">
+                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="style-strip-viewport">
+                <div id="style-strip-track" class="style-strip-track" role="listbox" aria-label="HTML 样式列表" tabindex="0"></div>
+              </div>
+              <button id="style-next" type="button" class="style-nav-btn" aria-label="下一个 HTML 样式" title="下一个样式 (→)">
+                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+
+            <div class="style-scrollbar-row">
+              <span class="style-scrollbar-bound">1</span>
+              <input id="style-scrollbar" class="style-scrollbar-input" type="range" min="0" max="99" step="1" value="0" aria-label="快速翻动 HTML 样式">
+              <span id="style-scrollbar-max" class="style-scrollbar-bound">100</span>
+            </div>
+
+            <div class="style-expand-row">
+              <button id="style-expand-toggle" type="button" class="style-expand-btn" aria-expanded="false" aria-controls="style-all-drawer">
+                <span id="style-expand-label">展开查看全部样式</span>
+                <svg class="style-expand-chevron" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 7.5 10 12.5 15 7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+
+            <div id="style-all-drawer" class="style-all-drawer" hidden>
+              <div class="style-drawer-toolbar">
+                <input id="style-filter" type="search" class="style-filter-input" placeholder="搜索样式名称或编号（例如：赛博、88、新）" aria-label="筛选 HTML 样式">
+                <span id="style-drawer-count" class="style-drawer-count">共 100 套样式</span>
+              </div>
+              <div id="style-all-grid" class="style-all-grid" role="listbox" aria-label="全部 HTML 样式"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-footer">
+          <span class="step-progress-text">第 1 / 4 步 · 填写包信息</span>
+          <div class="step-footer-actions">
+            <button type="button" class="primary" data-step-next>下一步：上传角色和背景图 →</button>
+          </div>
         </div>
       </section>
 
-      <section class="panel" data-editor-view="appearance">
-        <div class="panel-heading"><div><span>02</span><h2>尺寸与透明度</h2></div><small>与生产渲染范围一致</small></div>
-        <div class="form-grid compact-grid">
-          <label><span>字号</span><input id="font_size" type="number" min="30" max="120" step="1"></label>
-          <label><span>相对宽度（800 为基准）</span><input id="max_width" type="number" min="600" max="1200" step="10"><small class="hint">1000 表示各功能加宽 200；默认 1200 的页面变为 1400。</small></label>
-          <label><span>角色尺寸</span><input id="avatar_size" type="number" min="80" max="360" step="5"></label>
-          <label><span>水平偏移</span><input id="avatar_offset_x" type="number" min="-400" max="400" step="5"></label>
-          <label><span>垂直偏移</span><input id="avatar_offset_y" type="number" min="-400" max="400" step="5"></label>
-          <label><span>背景图不透明度</span><input id="bg_transparency" type="number" min="0" max="100" step="1"></label>
-          <label><span>内容底色不透明度 / 毛玻璃强度（互斥）</span><input id="fg_transparency" type="number" min="0" max="100" step="1"></label>
-          <label><span>角色不透明度</span><input id="avatar_transparency" type="number" min="0" max="200" step="1"><small class="hint">100 为正常不透明；内容重叠时可提高到 200 抵消自动减半。</small></label>
-          <label class="switch"><input id="glass_blur" type="checkbox"><span>启用主内容层毛玻璃（开启后数值只控制玻璃强度）</span></label>
+      <!-- 第 2 步：上传角色和背景图 -->
+      <section class="panel step-panel" data-editor-view="appearance" data-appearance-step="2" hidden>
+        <div class="panel-heading">
+          <div><span>STEP 02</span><h2>上传角色和背景图</h2></div>
+          <small>支持 PNG / JPEG，点击或拖拽替换；角色图建议先抠图去背景保存为透明 PNG</small>
         </div>
-      </section>
 
-      <section class="panel" data-editor-view="appearance">
-        <div class="panel-heading"><div><span>03</span><h2>配色</h2></div><button id="restore-theme-defaults" type="button" class="text-button">恢复主题建议值</button></div>
-        <div class="color-grid">
-          <label><span>背景色</span><input id="bg_color" type="color"></label>
-          <label><span>外框颜色</span><input id="border_color" type="color"></label>
-          <label><span>边框文字</span><input id="border_text_color" type="color"></label>
-          <label><span>主题色</span><input id="theme_color" type="color"></label>
-          <label><span>基础文字</span><input id="base_text_color" type="color"></label>
-          <label><span>数值文字</span><input id="value_text_color" type="color"></label>
-          <label><span>通知文字</span><input id="notice_text_color" type="color"></label>
-          <label><span>成功文字</span><input id="success_text_color" type="color"></label>
-          <label><span>信息文字</span><input id="info_text_color" type="color"></label>
-          <label><span>警告文字</span><input id="warn_text_color" type="color"></label>
-          <label><span>备注文字</span><input id="subtitle_text_color" type="color"></label>
-        </div>
-      </section>
-
-      <section class="panel" data-editor-view="appearance">
-        <div class="panel-heading"><div><span>04</span><h2>背景与右侧图案</h2></div><small>PNG/JPEG，服务端重新校验</small></div>
         <div class="asset-grid">
-          <label class="asset-drop"><strong>替换背景</strong><span id="background-state">沿用包内背景</span><input id="background-upload" type="file" accept="image/png,image/jpeg"></label>
-          <label class="asset-drop"><strong>替换右侧图案</strong><span id="avatar-state">沿用包内图案</span><input id="avatar-upload" type="file" accept="image/png,image/jpeg"></label>
+          <div class="asset-card" data-drop-kind="avatar">
+            <div class="asset-card-head">
+              <div>
+                <strong>角色图（右侧图案）</strong>
+                <span class="asset-tip">请先抠图去背景，使用透明底 PNG，最大 8 MiB</span>
+              </div>
+              <button id="avatar-clear" type="button" class="text-button asset-clear-btn" hidden>恢复原图</button>
+            </div>
+            <label class="asset-drop" for="avatar-upload">
+              <div class="asset-thumb-box checker" id="avatar-thumb-box" hidden>
+                <img id="avatar-preview" alt="已选角色图预览">
+              </div>
+              <div class="asset-drop-copy">
+                <strong class="asset-drop-action">选择或拖拽角色图</strong>
+                <span id="avatar-state">沿用包内图案</span>
+              </div>
+              <input id="avatar-upload" class="visually-hidden" type="file" accept="image/png,image/jpeg">
+            </label>
+          </div>
+
+          <div class="asset-card" data-drop-kind="background">
+            <div class="asset-card-head">
+              <div>
+                <strong>背景图</strong>
+                <span class="asset-tip">建议清晰度充足、构图清爽的 PNG / JPEG，最大 10 MiB</span>
+              </div>
+              <button id="background-clear" type="button" class="text-button asset-clear-btn" hidden>恢复原图</button>
+            </div>
+            <label class="asset-drop" for="background-upload">
+              <div class="asset-thumb-box" id="background-thumb-box" hidden>
+                <img id="background-preview" alt="已选背景图预览">
+              </div>
+              <div class="asset-drop-copy">
+                <strong class="asset-drop-action">选择或拖拽背景图</strong>
+                <span id="background-state">沿用包内背景</span>
+              </div>
+              <input id="background-upload" class="visually-hidden" type="file" accept="image/png,image/jpeg">
+            </label>
+          </div>
         </div>
-        <div id="theme-assets-panel" hidden>
-          <label class="asset-drop"><strong>组件装饰素材</strong><span>上传 header.png 等文件，在主题中通过素材名引用。</span><input id="theme-assets-upload" type="file" multiple accept="image/png,image/jpeg"></label>
-          <div class="asset-summary" id="theme-assets-list"></div>
+
+        <div class="asset-meta-block">
+          <span class="asset-meta-label">当前包内素材信息</span>
+          <div class="asset-summary" id="asset-summary"></div>
         </div>
-        <div class="asset-summary" id="asset-summary"></div>
+
+        <div class="step-footer">
+          <button type="button" class="secondary" data-step-prev>← 上一步：填写包信息</button>
+          <span class="step-progress-text">第 2 / 4 步 · 角色与背景</span>
+          <div class="step-footer-actions">
+            <button type="button" class="primary" data-step-next>下一步：尺寸与透明度 →</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 第 3 步：尺寸与透明度 -->
+      <section class="panel step-panel" data-editor-view="appearance" data-appearance-step="3" hidden>
+        <div class="panel-heading">
+          <div><span>STEP 03</span><h2>尺寸与透明度</h2></div>
+          <small>滑块提供常用参考范围，输入框允许超出滑块填至后端允许范围</small>
+        </div>
+
+        <div class="step-subgroup">
+          <h3 class="subgroup-title">版面与角色位置</h3>
+          <div class="slider-grid">
+            <div class="range-card">
+              <div class="range-card-head">
+                <label for="font_size">字号</label>
+                <div class="range-num-wrap">
+                  <input id="font_size" type="number" min="30" max="150" step="1">
+                  <span class="range-unit">px</span>
+                </div>
+              </div>
+              <input class="range-slider" type="range" min="60" max="150" step="1" data-range-for="font_size" aria-label="字号参考滑块">
+              <div class="range-bounds"><span>60</span><span>150</span></div>
+              <small class="hint">滑块参考 60–150（按 1/4 线性对应 15–37.5px），输入框支持 30–150，默认 95。</small>
+            </div>
+
+            <div class="range-card">
+              <div class="range-card-head">
+                <label for="max_width">相对宽度（800 为基准）</label>
+                <div class="range-num-wrap">
+                  <input id="max_width" type="number" min="600" max="1200" step="1">
+                  <span class="range-unit">px</span>
+                </div>
+              </div>
+              <input class="range-slider" type="range" min="700" max="1000" step="10" data-range-for="max_width" aria-label="相对宽度参考滑块">
+              <div class="range-bounds"><span>700</span><span>1000</span></div>
+              <small class="hint">滑块参考 700–1000，输入框支持 600–1200；设 1000 表示各功能加宽 200。</small>
+            </div>
+          </div>
+
+          <div class="slider-grid slider-grid-3">
+            <div class="range-card">
+              <div class="range-card-head">
+                <label for="avatar_size">角色尺寸</label>
+                <div class="range-num-wrap">
+                  <input id="avatar_size" type="number" min="80" max="360" step="1">
+                  <span class="range-unit">px</span>
+                </div>
+              </div>
+              <input class="range-slider" type="range" min="100" max="280" step="5" data-range-for="avatar_size" aria-label="角色尺寸参考滑块">
+              <div class="range-bounds"><span>100</span><span>280</span></div>
+              <small class="hint">滑块参考 100–280，输入框支持 80–360。</small>
+            </div>
+
+            <div class="range-card">
+              <div class="range-card-head">
+                <label for="avatar_offset_x">角色水平偏移</label>
+                <div class="range-num-wrap">
+                  <input id="avatar_offset_x" type="number" min="-400" max="400" step="1">
+                  <span class="range-unit">px</span>
+                </div>
+              </div>
+              <input class="range-slider" type="range" min="-200" max="200" step="5" data-range-for="avatar_offset_x" aria-label="角色水平偏移参考滑块">
+              <div class="range-bounds"><span>-200 左</span><span>0</span><span>200 右</span></div>
+              <small class="hint">滑块参考 -200–200，输入框支持 -400–400。</small>
+            </div>
+
+            <div class="range-card">
+              <div class="range-card-head">
+                <label for="avatar_offset_y">角色垂直偏移</label>
+                <div class="range-num-wrap">
+                  <input id="avatar_offset_y" type="number" min="-400" max="400" step="1">
+                  <span class="range-unit">px</span>
+                </div>
+              </div>
+              <input class="range-slider" type="range" min="-200" max="200" step="5" data-range-for="avatar_offset_y" aria-label="角色垂直偏移参考滑块">
+              <div class="range-bounds"><span>-200 上</span><span>0</span><span>200 下</span></div>
+              <small class="hint">滑块参考 -200–200，输入框支持 -400–400。</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-subgroup">
+          <h3 class="subgroup-title">透明度与毛玻璃</h3>
+          <div class="slider-grid">
+            <div class="range-card">
+              <div class="range-card-head">
+                <label for="bg_transparency">背景图不透明度</label>
+                <div class="range-num-wrap">
+                  <input id="bg_transparency" type="number" min="0" max="100" step="1">
+                  <span class="range-unit">%</span>
+                </div>
+              </div>
+              <input class="range-slider" type="range" min="0" max="100" step="1" data-range-for="bg_transparency" aria-label="背景图不透明度参考滑块">
+              <div class="range-bounds"><span>0 隐藏</span><span>100 不透明</span></div>
+              <small class="hint">输入框与滑块范围均为 0–100，调高让背景图更清晰。</small>
+            </div>
+
+            <div class="range-card">
+              <div class="range-card-head">
+                <label for="fg_transparency" id="fg_transparency_label">内容底色不透明度</label>
+                <div class="range-num-wrap">
+                  <input id="fg_transparency" type="number" min="0" max="100" step="1">
+                  <span class="range-unit">%</span>
+                </div>
+              </div>
+              <input class="range-slider" type="range" min="0" max="100" step="1" data-range-for="fg_transparency" aria-label="内容底色不透明度或毛玻璃强度参考滑块">
+              <div class="range-bounds"><span>0</span><span>100</span></div>
+              <small class="hint" id="fg_transparency_hint">关闭毛玻璃时控制内容区底色不透明度；开启毛玻璃后控制模糊强度。</small>
+            </div>
+
+            <div class="range-card">
+              <div class="range-card-head">
+                <label for="avatar_transparency">角色不透明度</label>
+                <div class="range-num-wrap">
+                  <input id="avatar_transparency" type="number" min="0" max="200" step="1">
+                  <span class="range-unit">%</span>
+                </div>
+              </div>
+              <input class="range-slider" type="range" min="0" max="100" step="1" data-range-for="avatar_transparency" aria-label="角色不透明度参考滑块">
+              <div class="range-bounds"><span>0</span><span>100 正常</span></div>
+              <small class="hint">滑块参考 0–100；与文字重叠时可在输入框填至 200 抵消自动减半。</small>
+            </div>
+
+            <div class="range-card switch-card">
+              <label class="switch">
+                <input id="glass_blur" type="checkbox">
+                <span class="switch-copy">
+                  <strong>启用主内容层毛玻璃</strong>
+                  <small>开启后，“内容底色/毛玻璃强度”滑块将专门控制玻璃模糊强度。</small>
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-footer">
+          <button type="button" class="secondary" data-step-prev>← 上一步：角色与背景</button>
+          <span class="step-progress-text">第 3 / 4 步 · 尺寸与透明度</span>
+          <div class="step-footer-actions">
+            <button type="button" class="primary" data-step-next>下一步：配色 →</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 第 4 步：配色 -->
+      <section class="panel step-panel" data-editor-view="appearance" data-appearance-step="4" hidden>
+        <div class="panel-heading">
+          <div><span>STEP 04</span><h2>配色</h2></div>
+          <button id="restore-theme-defaults" type="button" class="text-button">恢复主题建议值</button>
+        </div>
+
+        <div class="step-subgroup">
+          <h3 class="subgroup-title">框架与主题色</h3>
+          <div class="color-grid">
+            <label><span>背景色</span><input id="bg_color" type="color"></label>
+            <label><span>外框颜色</span><input id="border_color" type="color"></label>
+            <label><span>边框文字</span><input id="border_text_color" type="color"></label>
+            <label><span>主题色</span><input id="theme_color" type="color"></label>
+          </div>
+        </div>
+
+        <div class="step-subgroup">
+          <h3 class="subgroup-title">正文与状态文字色</h3>
+          <div class="color-grid">
+            <label><span>基础文字</span><input id="base_text_color" type="color"></label>
+            <label><span>数值文字</span><input id="value_text_color" type="color"></label>
+            <label><span>通知文字</span><input id="notice_text_color" type="color"></label>
+            <label><span>成功文字</span><input id="success_text_color" type="color"></label>
+            <label><span>信息文字</span><input id="info_text_color" type="color"></label>
+            <label><span>警告文字</span><input id="warn_text_color" type="color"></label>
+            <label><span>备注文字</span><input id="subtitle_text_color" type="color"></label>
+          </div>
+        </div>
+
+        <div class="step-footer">
+          <button type="button" class="secondary" data-step-prev>← 上一步：尺寸与透明度</button>
+          <span class="step-progress-text">第 4 / 4 步 · 配色</span>
+          <div class="step-footer-actions">
+            <button id="step-export-package" type="button" class="primary" disabled>完成并导出个性化包</button>
+          </div>
+        </div>
       </section>
 
       <section class="panel i18n-panel" data-editor-view="i18n" hidden>
-        <div class="panel-heading"><div><span>05</span><h2>i18n 文案编辑</h2></div><small id="i18n-catalog-status">正在读取外围词典</small></div>
+        <div class="panel-heading"><div><span>I18N</span><h2>i18n 文案编辑</h2></div><small id="i18n-catalog-status">正在读取外围词典</small></div>
         <div class="i18n-actions">
           <div class="i18n-mode-tabs" role="group" aria-label="i18n 编辑模式">
             <button type="button" class="selected" data-i18n-mode="fields" aria-selected="true">分类字段</button>
@@ -125,12 +414,12 @@
             <div id="i18n-locales" class="locale-tabs" role="tablist" aria-label="语言"></div>
             <button id="i18n-add-cn" type="button" class="secondary compact-button">+ 国服</button>
             <div class="locale-add-other">
-              <input id="i18n-other-locale" type="text" maxlength="32" pattern="[A-Za-z][A-Za-z0-9-]{0,31}" placeholder="例如 ja 或 zh-Hant" aria-label="其他语言 locale">
+              <input id="i18n-other-locale" type="text" maxlength="32" placeholder="例如 ja 或 zh-Hant" aria-label="其他语言 locale">
               <button id="i18n-add-other" type="button" class="secondary compact-button">添加其他语言</button>
             </div>
             <button id="i18n-delete-locale" type="button" class="danger-button compact-button" disabled>删除当前语言</button>
           </div>
-          <p class="hint">默认提供国际服；国服和其他语言按需增加。FooterText 会更新右侧预览。开头文案随包导出供机器人使用，右侧正文采用固定示例。</p>
+          <p class="hint">FooterText 会更新右侧预览。开头文案随包导出供机器人使用，右侧正文采用固定示例。</p>
           <div id="i18n-categories" class="i18n-categories"></div>
         </div>
 
@@ -140,15 +429,31 @@
         </div>
       </section>
 
-      <section class="panel" id="custom-html-panel" data-editor-view="appearance" hidden>
-        <div class="panel-heading"><div><span>06</span><h2>自定义 HTML</h2></div><button id="load-custom-starter" type="button" class="text-button">恢复安全基础模板</button></div>
-        <p class="hint" id="custom-html-hint">选择 HTML 主题后开始编辑。</p>
-        <details><summary>组件参数与插槽参考</summary><pre id="component-contract"></pre></details>
-        <textarea id="custom_html" class="code-editor tall" rows="24" spellcheck="false" maxlength="196608"></textarea>
+      <section class="panel custom-html-panel" id="custom-html-panel" data-editor-view="custom-html" hidden>
+        <div class="panel-heading">
+          <div><span>HTML</span><h2>自定义 HTML 主题</h2></div>
+          <div class="custom-html-head-actions">
+            <button id="toggle-custom-html" type="button" class="primary compact-button">启用自定义 HTML 主题</button>
+            <button id="load-custom-starter" type="button" class="text-button" hidden>恢复安全基础模板</button>
+          </div>
+        </div>
+        <p class="hint" id="custom-html-hint">当前正在使用内置 HTML 样式；点击“启用自定义 HTML 主题”即可载入完整组件标准模板，随时可切回内置样式。</p>
+        <div id="custom-html-editor-body" hidden>
+          <div id="theme-assets-panel" class="theme-assets-panel" hidden>
+            <label class="asset-drop compact-drop">
+              <strong>组件装饰素材（标准模板专用）</strong>
+              <span>上传 header.png 等文件，在自定义 HTML 中通过素材名引用。</span>
+              <input id="theme-assets-upload" type="file" multiple accept="image/png,image/jpeg">
+            </label>
+            <div class="asset-summary" id="theme-assets-list"></div>
+          </div>
+          <details class="custom-html-contract"><summary>组件参数与插槽参考</summary><pre id="component-contract"></pre></details>
+          <textarea id="custom_html" class="code-editor tall" rows="24" spellcheck="false" maxlength="196608"></textarea>
+        </div>
       </section>
 
       <section class="panel" id="apply-panel" hidden>
-        <div class="panel-heading"><div><span>07</span><h2>导入到当前服务</h2></div><small>按包内群号自动绑定</small></div>
+        <div class="panel-heading"><div><span>ADMIN</span><h2>导入到当前服务</h2></div><small>按包内群号自动绑定</small></div>
         <div class="form-grid">
           <label><span>后台写入 Token</span><input id="apply-token" type="password" autocomplete="new-password"></label>
           <label><span>操作人</span><input id="apply-actor" maxlength="160"></label>
