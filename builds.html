@@ -170,8 +170,20 @@
             </label>
 
             <div class="field">
-              <span>主流派定位 <em>*</em>（决定群友按流派检索时的归类）</span>
-              <div id="archetype-pills" class="archetype-grid" role="radiogroup" aria-label="配卡流派"></div>
+              <span>构筑底盘大类 <em>*</em>（用于基础分类与新手粗筛）</span>
+              <div id="archetype-pills" class="archetype-grid" role="radiogroup" aria-label="配卡流派大类"></div>
+            </div>
+
+            <div class="field">
+              <span>专属流派名称（选填 · 区分同装备不同核心机制；同流派再次上传会更新，不同流派可并存）</span>
+              <input id="note-subflow" type="text" maxlength="60" placeholder="例如：减速控场 / 加速速刷 / 近战影响 / 震地流 / 绿源力石毒芽">
+              <div id="preset-subflow-pills" class="tag-preset-row" aria-label="常用专属流派快捷填入"></div>
+            </div>
+
+            <div class="field">
+              <span>场景与玩法标签（选填 · 最多 8 个，支持群友按副本或玩法跨装备检索）</span>
+              <input id="note-tags" type="text" maxlength="160" placeholder="例如：钢铁之路、虚空洪流、中断、低极化新手（多个标签用顿号或逗号分隔）">
+              <div id="preset-tag-pills" class="tag-preset-row" aria-label="常用场景快捷标签"></div>
             </div>
 
             <label class="field">
@@ -229,8 +241,8 @@
           <h3>发送到群里后会发生什么？</h3>
           <ol>
             <li>将指令整条发到<strong>要分享的聊天群</strong>（私聊无法归属群配卡）。</li>
-            <li>保存成功后<strong>本群立即可用</strong> <code>配卡 &lt;装备名&gt; &lt;流派&gt;</code> 查看图片；管理员审核通过后全服群可查。</li>
-            <li>你在同一群对同一装备、同一流派与配置档位再次上传时，会自动覆盖更新旧配卡；如需撤回可发 <code>配卡 &lt;装备名&gt; &lt;流派&gt; -删除</code>。</li>
+            <li>保存成功后<strong>本群立即可用</strong> <code>配卡 &lt;装备名&gt;</code> 查看指南与配卡图；管理员审核后可设为全服公开或仅留本群。</li>
+            <li>你在同一群对同一装备、同一专属流派（未填则按大类与标题）再次上传时，会自动覆盖更新旧配卡；填写不同专属流派名称即可并存多套玩法。如需撤回可发 <code>配卡 &lt;装备名&gt; &lt;序号&gt; -删除</code>。</li>
           </ol>
         </div>
       </aside>
