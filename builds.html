@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff9f2">
+  <link rel="icon" href="./icon.webp">
+  <meta name="description" content="在网页中组合完整的 Warframe 武器与战甲配卡、极化、赋能、灵化、源力石与详细玩法说明，生成 WRB1 配卡上传指令发给兔子。">
+  <title>配卡上传 · 兔子帮助中心</title>
+  <script>
+    try {
+      if (localStorage.getItem("warframe-rabbit-settings-theme") === "dark") {
+        document.documentElement.dataset.theme = "dark";
+        document.querySelector('meta[name="theme-color"]').content = "#1d1418";
+      }
+    } catch {}
+  </script>
+  <link rel="stylesheet" href="./site.css">
+  <link rel="stylesheet" href="./builds.css">
+  <script src="./site.js" defer></script>
+  <script src="./builds.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳转到正文</a><header class="site-header"><div class="header-inner"><a class="site-brand" href="./index.html"><svg viewBox="0 0 40 44" aria-hidden="true"><path d="M13 21C8 12 7 3 12 2c4-1 6 9 6 17Z" fill="var(--ear-fill)" stroke="var(--border)" stroke-width="2" stroke-linejoin="round"/><path d="M13.5 18C11 12 10.5 6 12.6 5.5c1.9-.5 3 5.5 3.2 11.5Z" fill="var(--ear-inner)"/><path d="M22 19c1-9 5-17 10-15 4 2-1 11-6 18Z" fill="var(--ear-fill)" stroke="var(--border)" stroke-width="2" stroke-linejoin="round"/><path d="M24 18c1-6 4-11.5 6-10.5 1.8.9-1 6.5-4.2 11.5Z" fill="var(--ear-inner)"/><ellipse cx="20" cy="30" rx="13" ry="11" fill="var(--ear-fill)" stroke="var(--border)" stroke-width="2"/><ellipse cx="11.5" cy="32" rx="2.4" ry="1.5" fill="var(--pink)" opacity=".45"/><ellipse cx="28.5" cy="32" rx="2.4" ry="1.5" fill="var(--pink)" opacity=".45"/><circle cx="15" cy="29.5" r="2.1" fill="var(--eye-fill)"/><circle cx="25" cy="29.5" r="2.1" fill="var(--eye-fill)"/><circle cx="15.6" cy="28.8" r=".7" fill="#fff"/><circle cx="25.6" cy="28.8" r=".7" fill="#fff"/><path d="M18.2 33q1.8 2 3.6 0" fill="none" stroke="var(--border)" stroke-width="1.6" stroke-linecap="round"/><path d="M20 39l2.5 3.5h-5Z" fill="var(--carrot)"/><path d="M18.5 38.8q1.5-1.8 3 0" fill="none" stroke="var(--leaf)" stroke-width="1.8" stroke-linecap="round"/></svg><span><span class="brand-title">兔子帮助中心</span><span class="brand-caption">因幡帝 · 幸运白兔小铺</span></span></a><button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">菜单</button><nav class="site-nav" id="site-nav" aria-label="主导航"><a href="./index.html">首页</a><a href="./invite.html">邀请入群</a><a href="./new-group.html">新群设置</a><a href="./quickstart.html">快速上手</a><a href="./settings.html">配置中心</a><a href="./personality.html">个性化</a><a href="./builds.html" aria-current="page">配卡上传</a><a href="./help.html">帮助中心</a><a href="./updates.html">更新公告</a><a href="./contact.html">联系反馈</a></nav><button class="theme-toggle" id="theme-toggle" type="button" aria-label="切换为夜间暖窝模式" title="切换为夜间暖窝模式"><svg class="theme-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg><svg class="theme-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A9 9 0 0 1 10 3.5 9 9 0 1 0 20.5 14Z"/></svg><span class="theme-toggle-text theme-label-dark">切换晴日</span><span class="theme-toggle-text theme-label-light">切换暖夜</span></button></div></header>
+  <main id="main" class="builds-page">
+    <header class="intro">
+      <p class="eyebrow">配装工坊 · WRB1</p>
+      <h1>兔子配卡上传</h1>
+      <p class="lead">挑选装备、摆好槽位与极化，把核心机制、操作手法和下位替代写清楚，复制一条指令发到群里。保存成功后，使用配卡查询查看带完整卡面的高清配卡图。</p>
+    </header>
+
+    <p id="catalog-loading" class="settings-notice" role="status">正在加载武器与战甲配装目录…</p>
+
+    <div id="builds-workspace" class="builds-layout" hidden>
+      <div class="build-workbench">
+        <section class="panel" aria-labelledby="step-target-title">
+          <div class="panel-head">
+            <div>
+              <span class="step-tag">01 · 选择目标</span>
+              <h2 id="step-target-title">配装类型与装备</h2>
+            </div>
+            <div class="kind-tabs" role="tablist" aria-label="配装种类">
+              <button type="button" id="tab-weapon" role="tab" aria-selected="true" data-kind="weapon">武器配装</button>
+              <button type="button" id="tab-warframe" role="tab" aria-selected="false" data-kind="warframe">战甲配装</button>
+            </div>
+          </div>
+
+          <div class="target-bar">
+            <div class="target-current">
+              <span class="muted small" id="target-kicker">当前装备</span>
+              <strong id="target-name">请选择武器</strong>
+              <span class="badge" id="target-sub" hidden></span>
+            </div>
+            <div class="target-actions">
+              <button type="button" id="switch-form-btn" hidden></button>
+              <button type="button" class="button primary" id="open-target-picker">更换装备</button>
+            </div>
+          </div>
+
+          <div id="weapon-extra-controls" class="sub-controls" hidden>
+            <div id="modular-panel" class="sub-box" hidden>
+              <h3 id="modular-title">组合武器部件装配</h3>
+              <div class="fields three" id="modular-fields"></div>
+            </div>
+
+            <div class="fields two" id="weapon-mode-innate-row" hidden>
+              <label class="field" id="fire-mode-wrap" hidden>
+                <span>展示攻击模式</span>
+                <select id="fire-mode-select"></select>
+              </label>
+              <div class="field" id="innate-wrap" hidden>
+                <span>自带加成元素（赤毒 / 信条 / 终幕）</span>
+                <div class="inline-pair">
+                  <select id="innate-element-select" aria-label="自带元素类型"></select>
+                  <input id="innate-value-input" type="number" min="25" max="60" step="1" value="60" aria-label="自带元素百分比">
+                  <span class="unit-tag">%</span>
+                </div>
+              </div>
+            </div>
+
+            <div id="incarnon-panel" class="sub-box" hidden>
+              <div class="sub-box-head">
+                <h3>灵化之源进化路线</h3>
+                <button type="button" class="small-btn" id="incarnon-fill-rec">填入推荐路线</button>
+              </div>
+              <div id="incarnon-tiers" class="incarnon-grid"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" aria-labelledby="step-slots-title">
+          <div class="panel-head">
+            <div>
+              <span class="step-tag">02 · 摆好卡组</span>
+              <h2 id="step-slots-title">MOD 槽位、容量与极化</h2>
+            </div>
+            <div class="slot-toolbar">
+              <button type="button" class="small-btn accent" id="auto-forma-btn" title="自动计算满足容量的最少极化并保留基础元素顺序">⚡ 自动最少极化</button>
+              <button type="button" class="small-btn" id="reset-forma-btn">重置极性</button>
+              <button type="button" class="small-btn" id="clear-slots-btn">清空配卡</button>
+            </div>
+          </div>
+
+          <div class="capacity-box" id="capacity-box">
+            <div class="capacity-meta">
+              <span id="capacity-text">剩余容量 <strong>60 / 60</strong></span>
+              <span id="forma-text" class="badge">0 Forma</span>
+            </div>
+            <div class="capacity-track" aria-hidden="true"><div id="capacity-fill" class="capacity-fill"></div></div>
+            <p class="hint small capacity-hint" id="capacity-hint">点击槽位右上角极性可单独极化；武器基础元素卡按槽位 01 → 08 顺序复合，自带元素最后参与复合。</p>
+          </div>
+
+          <div class="special-slots-row" id="special-slots-row"></div>
+
+          <h3 class="sub-heading">常规 MOD 槽位（8 槽）</h3>
+          <div class="mod-grid" id="normal-slots-grid"></div>
+
+          <div id="warframe-extras" class="wf-extras" hidden>
+            <div class="sub-box">
+              <h3>战甲赋能（2 槽）</h3>
+              <div class="special-slots-row two" id="wf-arcanes-row"></div>
+            </div>
+
+            <div class="sub-box">
+              <div class="sub-box-head">
+                <h3>执刑官源力石（5 槽 · 可选）</h3>
+                <button type="button" class="small-btn" id="clear-shards-btn">清空源力石</button>
+              </div>
+              <div class="shards-grid" id="wf-shards-grid"></div>
+            </div>
+
+            <div class="fields two">
+              <div class="sub-box">
+                <div class="sub-box-head">
+                  <h3>Helminth 技能移植（可选）</h3>
+                  <button type="button" class="small-btn" id="clear-helminth-btn">清除移植</button>
+                </div>
+                <label class="field">
+                  <span>被替换的原技能槽</span>
+                  <select id="helminth-slot-select"></select>
+                </label>
+                <div class="picker-trigger-box" id="helminth-ability-box"></div>
+              </div>
+
+              <div class="sub-box">
+                <div class="sub-box-head">
+                  <h3>活化增幅（可选 · 最多 3 项）</h3>
+                  <button type="button" class="small-btn" id="clear-invig-btn">清除活化</button>
+                </div>
+                <div id="invigoration-list" class="stack-list"></div>
+                <button type="button" class="small-btn" id="add-invig-btn">+ 添加活化词条</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" aria-labelledby="step-notes-title">
+          <div class="panel-head">
+            <div>
+              <span class="step-tag">03 · 写清说明</span>
+              <h2 id="step-notes-title">流派定位与详细构筑说明</h2>
+            </div>
+          </div>
+          <p class="hint">好的文字说明比单纯摆八张卡更有价值：把适用场景、技能/武器循环、为什么带某张卡、缺昂贵卡或紫卡时怎么替换写清楚，群友查询时会完整展示在配卡图中。</p>
+
+          <div class="notes-form">
+            <label class="field">
+              <span>配装标题 <em>*</em></span>
+              <input id="note-title" type="text" maxlength="120" placeholder="例如：钢铁之路通用镀层双暴 / 持久高强牛吼武器台">
+            </label>
+
+            <div class="field">
+              <span>主流派定位 <em>*</em>（决定群友按流派检索时的归类）</span>
+              <div id="archetype-pills" class="archetype-grid" role="radiogroup" aria-label="配卡流派"></div>
+            </div>
+
+            <label class="field">
+              <span>一句话玩法摘要 <em>*</em>（显示在配卡图顶部醒目摘要栏）</span>
+              <textarea id="note-summary" rows="2" maxlength="600" placeholder="简明概括核心定位、适用难度（如日常速刷 / 钢铁之路 / 虚空洪流 / 中断）以及是否依赖特定外部增益。"></textarea>
+            </label>
+
+            <label class="field">
+              <span>详细配装说明（选填 · 独立展示在「配装说明」章节，适合写机制细节）</span>
+              <textarea id="note-description" rows="4" maxlength="4000" placeholder="可详细展开：元素为什么这样排、赋能与灵化如何联动、战甲/同伴搭配建议、实战手感细节等。留空则只显示上方摘要，不会重复打印。"></textarea>
+            </label>
+
+            <div class="fields two">
+              <label class="field">
+                <span>怎么用 / 输出手法 <em>*</em>（每行一条，完整展示）</span>
+                <textarea id="note-usage" rows="5" maxlength="1200" placeholder="每行写一步要点，例如：&#10;开局弱点命中快速充能开启灵化形态&#10;瞄准射击保持镀层叠层&#10;面对高甲精英先挂病毒再收割"></textarea>
+              </label>
+
+              <label class="field">
+                <span>下位替换与注意事项 <em>*</em>（每行一条，完整展示）</span>
+                <textarea id="note-cautions" rows="5" maxlength="1200" placeholder="每行写一条替换或限制，例如：&#10;无紫卡可将 8 号槽换为「致命洪流」或阵营卡&#10;无镀层多重可先用「分裂膛室」过渡&#10;没有注意事项可填「无」"></textarea>
+              </label>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <aside class="panel handoff build-handoff" aria-labelledby="handoff-title">
+        <h2 id="handoff-title">上传与导入</h2>
+
+        <details class="restore">
+          <summary>粘贴已有配装码导入编辑</summary>
+          <p class="hint">支持粘贴群内上传回执里的 <code>WRC1.K…</code> 网页导入码、<code>配卡 &lt;装备&gt; &lt;流派&gt; 导入</code> 获取的导入码，或完整 <code>WRB1.K…</code> 上传指令。</p>
+          <label for="import-code-input" class="sr-only">待导入的配装码</label>
+          <textarea id="import-code-input" rows="3" spellcheck="false" placeholder="粘贴 WRC1.K… 或 WRB1.K…"></textarea>
+          <button type="button" class="small-btn" id="import-code-btn">解析并回填到工作台</button>
+        </details>
+
+        <div class="checklist-box">
+          <h3>当前配装速览</h3>
+          <ul id="build-checklist" class="build-checklist"></ul>
+        </div>
+
+        <button type="button" class="button primary full-btn" id="generate-cmd-btn">生成群聊上传指令</button>
+
+        <label for="output-cmd" class="field-name">发送给兔子的指令</label>
+        <textarea id="output-cmd" rows="5" readonly spellcheck="false" placeholder="配卡上传 WRB1.K…"></textarea>
+        <div class="copy-row">
+          <span id="output-length" class="hint">0 / 2900 字符</span>
+          <button type="button" class="small-btn accent" id="copy-cmd-btn" disabled>复制指令</button>
+        </div>
+        <p id="build-status" role="status" class="hint status-line"></p>
+
+        <div class="upload-guide">
+          <h3>发送到群里后会发生什么？</h3>
+          <ol>
+            <li>将指令整条发到<strong>要分享的聊天群</strong>（私聊无法归属群配卡）。</li>
+            <li>保存成功后<strong>本群立即可用</strong> <code>配卡 &lt;装备名&gt; &lt;流派&gt;</code> 查看图片；管理员审核通过后全服群可查。</li>
+            <li>你在同一群对同一装备、同一流派与配置档位再次上传时，会自动覆盖更新旧配卡；如需撤回可发 <code>配卡 &lt;装备名&gt; &lt;流派&gt; -删除</code>。</li>
+          </ol>
+        </div>
+      </aside>
+    </div>
+
+    <dialog id="picker-dialog" class="picker-dialog" aria-labelledby="picker-title">
+      <div class="picker-shell">
+        <header class="picker-head">
+          <div>
+            <span class="muted small" id="picker-kicker">选择项目</span>
+            <h2 id="picker-title">搜索目录</h2>
+          </div>
+          <button type="button" class="small-btn" id="picker-close-btn" aria-label="关闭选择窗口">关闭 ✕</button>
+        </header>
+        <div class="picker-controls">
+          <input id="picker-search" type="search" placeholder="输入中文名、英文名或效果关键词过滤…" autocomplete="off">
+          <div id="picker-filters" class="filter-pills"></div>
+        </div>
+        <div id="riven-editor" class="riven-editor" hidden></div>
+        <div id="picker-list" class="picker-list" role="listbox"></div>
+      </div>
+    </dialog>
+  </main>
+  <footer class="site-footer"><div><strong>WarframeRabbit · 因幡帝</strong>陪你查资料、看市场，也陪群友玩一会儿。</div><div class="footer-links"><a href="./help.html">指令大全</a><a href="./contact.html">联系黑猫</a></div></footer><div class="toast" id="site-toast" role="status" hidden></div>
+</body>
+</html>
